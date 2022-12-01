@@ -55,8 +55,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         self.api_key = {}
         # dict to store API prefix (e.g. Bearer)
         self.api_key_prefix = {
-            'bearer_token': 'Bearer',
-            'session_cookie': 'sessions=',
+            'bearer_token': 'Bearer'
         }
         # function to refresh API key if expired
         self.refresh_api_key_hook = None
@@ -238,13 +237,6 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
                     'in': 'header',
                     'key': 'Authorization',
                     'value': self.get_api_key_with_prefix('Authorization')
-                },
-            'session_cookie':
-                {
-                    'type': 'api_key',
-                    'in': 'header',
-                    'key': 'Cookie',
-                    'value': self.get_api_key_with_prefix('Cookie')
                 },
         }
 

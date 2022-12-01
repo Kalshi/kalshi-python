@@ -3,15 +3,16 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action** | **str** |  | [optional] 
-**count** | **int** |  | [optional] 
-**created_time** | [**OutputTime**](OutputTime.md) |  | [optional] 
-**is_taker** | **bool** |  | [optional] 
-**order_id** | **str** |  | [optional] 
-**side** | **str** |  | [optional] 
-**ticker** | **str** |  | [optional] 
-**trade_id** | **str** |  | [optional] 
-**yes_price** | [**Cent**](Cent.md) |  | [optional] 
+**action** | **str** | Specifies if this is a buy or sell order. | 
+**count** | **int** | Number of contracts to be bought or sold. | 
+**created_time** | [**OutputTime**](OutputTime.md) |  | 
+**is_taker** | **bool** | If true then this fill was a taker. | 
+**no_price** | [**Cent**](Cent.md) |  | 
+**order_id** | **str** | Unique identifier for orders. | 
+**side** | **str** | Specifies if this is a &#x27;yes&#x27; or &#x27;no&#x27; fill. | 
+**ticker** | **str** | Unique identifier for markets. | 
+**trade_id** | **str** | Unique identifier for fills. | 
+**yes_price** | [**Cent**](Cent.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -196,7 +196,7 @@ class AuthApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['bearer_token', 'session_cookie']  # noqa: E501
+        auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/logout', 'POST',

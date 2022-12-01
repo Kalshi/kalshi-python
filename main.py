@@ -33,8 +33,9 @@ pprint(balanceResponse)
 # Submit an order for 10 yes contracts at 50cents on 'FED-23DEC-T3.00'
 orderUuid = str(uuid.uuid4())
 orderResponse = kalshi_api.create_order(CreateOrderRequest(
-    market_ticker=marketTicker,
+    ticker=marketTicker,
     action='buy',
+    type='limit',
     yes_price=50,
     count=10,
     client_order_id=orderUuid,

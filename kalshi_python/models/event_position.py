@@ -54,18 +54,12 @@ class EventPosition(object):
         self._resting_order_count = None
         self._total_cost = None
         self.discriminator = None
-        if event_exposure is not None:
-            self.event_exposure = event_exposure
-        if event_ticker is not None:
-            self.event_ticker = event_ticker
-        if fees_paid is not None:
-            self.fees_paid = fees_paid
-        if realized_pnl is not None:
-            self.realized_pnl = realized_pnl
-        if resting_order_count is not None:
-            self.resting_order_count = resting_order_count
-        if total_cost is not None:
-            self.total_cost = total_cost
+        self.event_exposure = event_exposure
+        self.event_ticker = event_ticker
+        self.fees_paid = fees_paid
+        self.realized_pnl = realized_pnl
+        self.resting_order_count = resting_order_count
+        self.total_cost = total_cost
 
     @property
     def event_exposure(self):
@@ -85,6 +79,8 @@ class EventPosition(object):
         :param event_exposure: The event_exposure of this EventPosition.  # noqa: E501
         :type: Cent
         """
+        if event_exposure is None:
+            raise ValueError("Invalid value for `event_exposure`, must not be `None`")  # noqa: E501
 
         self._event_exposure = event_exposure
 
@@ -92,6 +88,7 @@ class EventPosition(object):
     def event_ticker(self):
         """Gets the event_ticker of this EventPosition.  # noqa: E501
 
+        Unique identifier for events.  # noqa: E501
 
         :return: The event_ticker of this EventPosition.  # noqa: E501
         :rtype: str
@@ -102,10 +99,13 @@ class EventPosition(object):
     def event_ticker(self, event_ticker):
         """Sets the event_ticker of this EventPosition.
 
+        Unique identifier for events.  # noqa: E501
 
         :param event_ticker: The event_ticker of this EventPosition.  # noqa: E501
         :type: str
         """
+        if event_ticker is None:
+            raise ValueError("Invalid value for `event_ticker`, must not be `None`")  # noqa: E501
 
         self._event_ticker = event_ticker
 
@@ -127,6 +127,8 @@ class EventPosition(object):
         :param fees_paid: The fees_paid of this EventPosition.  # noqa: E501
         :type: Cent
         """
+        if fees_paid is None:
+            raise ValueError("Invalid value for `fees_paid`, must not be `None`")  # noqa: E501
 
         self._fees_paid = fees_paid
 
@@ -148,6 +150,8 @@ class EventPosition(object):
         :param realized_pnl: The realized_pnl of this EventPosition.  # noqa: E501
         :type: Cent
         """
+        if realized_pnl is None:
+            raise ValueError("Invalid value for `realized_pnl`, must not be `None`")  # noqa: E501
 
         self._realized_pnl = realized_pnl
 
@@ -155,6 +159,7 @@ class EventPosition(object):
     def resting_order_count(self):
         """Gets the resting_order_count of this EventPosition.  # noqa: E501
 
+        Aggregate size of resting orders in contract units.  # noqa: E501
 
         :return: The resting_order_count of this EventPosition.  # noqa: E501
         :rtype: int
@@ -165,10 +170,13 @@ class EventPosition(object):
     def resting_order_count(self, resting_order_count):
         """Sets the resting_order_count of this EventPosition.
 
+        Aggregate size of resting orders in contract units.  # noqa: E501
 
         :param resting_order_count: The resting_order_count of this EventPosition.  # noqa: E501
         :type: int
         """
+        if resting_order_count is None:
+            raise ValueError("Invalid value for `resting_order_count`, must not be `None`")  # noqa: E501
 
         self._resting_order_count = resting_order_count
 
@@ -190,6 +198,8 @@ class EventPosition(object):
         :param total_cost: The total_cost of this EventPosition.  # noqa: E501
         :type: Cent
         """
+        if total_cost is None:
+            raise ValueError("Invalid value for `total_cost`, must not be `None`")  # noqa: E501
 
         self._total_cost = total_cost
 

@@ -1,4 +1,4 @@
-# kalshi_python.MarketApi
+# swagger_client.MarketApi
 
 All URIs are relative to *https://trading-api.kalshi.com/trade-api/v2*
 
@@ -20,16 +20,15 @@ GetEvent
 Endpoint for getting data about an event by its ticker.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = kalshi_python.MarketApi()
+api_instance = swagger_client.MarketApi()
 event_ticker = 'event_ticker_example' # str | Should be filled with the ticker of the event.
 
 try:
@@ -69,16 +68,15 @@ GetMarket
 Endpoint for getting data about a specific market.  The value for the ticker path parameter should match the ticker of the target market.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = kalshi_python.MarketApi()
+api_instance = swagger_client.MarketApi()
 ticker = 'ticker_example' # str | Market ticker for the market being retrieved.
 
 try:
@@ -118,19 +116,18 @@ GetMarketHistory
 Endpoint for getting the statistics history for a market.  The value for the ticker path parameter should match the ticker of the target market. The min_ts parameter is optional, and will restrict statistics to those after provided timestamp. The min_ts is inclusive, which means a market history point at min_ts will be returned.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = kalshi_python.MarketApi()
+api_instance = swagger_client.MarketApi()
 ticker = 'ticker_example' # str | Market ticker
 limit = 56 # int | Parameter to specify the number of results per page. Defaults to 20. (optional)
-cursor = 'cursor_example' # str | The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again. (optional)
+cursor = 'cursor_example' # str | The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like max_ts or min_ts were passed in the original query they must be passed again. (optional)
 min_ts = 789 # int | If provided, MinTs restricts history to trades starting from MinTs.  Default value: 1 hour ago. (optional)
 max_ts = 789 # int | If provided, MaxTs restricts history to trades up until MaxTs (optional)
 
@@ -148,7 +145,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ticker** | **str**| Market ticker | 
  **limit** | **int**| Parameter to specify the number of results per page. Defaults to 20. | [optional] 
- **cursor** | **str**| The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again. | [optional] 
+ **cursor** | **str**| The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like max_ts or min_ts were passed in the original query they must be passed again. | [optional] 
  **min_ts** | **int**| If provided, MinTs restricts history to trades starting from MinTs.  Default value: 1 hour ago. | [optional] 
  **max_ts** | **int**| If provided, MaxTs restricts history to trades up until MaxTs | [optional] 
 
@@ -175,16 +172,15 @@ GetMarketOrderbook
 Endpoint for getting the orderbook for a market.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = kalshi_python.MarketApi()
+api_instance = swagger_client.MarketApi()
 ticker = 'ticker_example' # str | Market ticker.
 depth = 56 # int | Depth specifies the maximum number of orderbook price levels on either side. (optional)
 
@@ -226,18 +222,17 @@ GetMarkets
 Endpoint for listing and discovering markets on Kalshi.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = kalshi_python.MarketApi()
+api_instance = swagger_client.MarketApi()
 limit = 789 # int | Parameter to specify the number of results per page. Defaults to 20. (optional)
-cursor = 'cursor_example' # str | The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again. (optional)
+cursor = 'cursor_example' # str | The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like tickers, max_ts or min_ts were passed in the original query they must be passed again. (optional)
 event_ticker = 'event_ticker_example' # str | Event ticker to retrieve markets for. (optional)
 series_ticker = 'series_ticker_example' # str | Series ticker to retrieve contracts for. (optional)
 max_close_ts = 789 # int | Restricts the markets to those that are closing in or before this timestamp. (optional)
@@ -258,7 +253,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int**| Parameter to specify the number of results per page. Defaults to 20. | [optional] 
- **cursor** | **str**| The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again. | [optional] 
+ **cursor** | **str**| The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like tickers, max_ts or min_ts were passed in the original query they must be passed again. | [optional] 
  **event_ticker** | **str**| Event ticker to retrieve markets for. | [optional] 
  **series_ticker** | **str**| Series ticker to retrieve contracts for. | [optional] 
  **max_close_ts** | **int**| Restricts the markets to those that are closing in or before this timestamp. | [optional] 
@@ -289,16 +284,15 @@ GetSeries
 Endpoint for getting data about a series by its ticker.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = kalshi_python.MarketApi()
+api_instance = swagger_client.MarketApi()
 series_ticker = 'series_ticker_example' # str | Should be filled with the ticker of the series.
 
 try:
@@ -338,17 +332,16 @@ GetTrades
 Endpoint for getting all trades for all markets.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = kalshi_python.MarketApi()
-cursor = 'cursor_example' # str | The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again. (optional)
+api_instance = swagger_client.MarketApi()
+cursor = 'cursor_example' # str | The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again. (optional)
 limit = 56 # int | Parameter to specify the number of results per page. Defaults to 20. (optional)
 ticker = 'ticker_example' # str | Parameter to specify a specific market to get trades from. (optional)
 min_ts = 789 # int | Restricts the response to trades after a timestamp. (optional)
@@ -366,7 +359,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cursor** | **str**| The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again. | [optional] 
+ **cursor** | **str**| The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again. | [optional] 
  **limit** | **int**| Parameter to specify the number of results per page. Defaults to 20. | [optional] 
  **ticker** | **str**| Parameter to specify a specific market to get trades from. | [optional] 
  **min_ts** | **int**| Restricts the response to trades after a timestamp. | [optional] 

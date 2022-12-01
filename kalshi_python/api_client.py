@@ -72,7 +72,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'kalshi-client/2.0.0/python'
+        self.user_agent = 'kalshi-python/1.1.0'
 
     def __del__(self):
         self.pool.close()

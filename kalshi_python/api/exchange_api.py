@@ -33,8 +33,9 @@ class ExchangeApi(object):
         self.api_client = api_client
 
     def get_exchange_status(self, **kwargs):  # noqa: E501
-        """Endpoint for getting the exchange status.  # noqa: E501
+        """GetExchangeStatus  # noqa: E501
 
+        Endpoint for getting the exchange status.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_exchange_status(async_req=True)
@@ -53,8 +54,9 @@ class ExchangeApi(object):
             return data
 
     def get_exchange_status_with_http_info(self, **kwargs):  # noqa: E501
-        """Endpoint for getting the exchange status.  # noqa: E501
+        """GetExchangeStatus  # noqa: E501
 
+        Endpoint for getting the exchange status.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_exchange_status_with_http_info(async_req=True)

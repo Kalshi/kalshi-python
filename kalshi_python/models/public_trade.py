@@ -30,6 +30,7 @@ class PublicTrade(object):
     swagger_types = {
         'count': 'int',
         'created_time': 'OutputTime',
+        'no_price': 'Cent',
         'taker_side': 'str',
         'ticker': 'str',
         'trade_id': 'str',
@@ -39,38 +40,36 @@ class PublicTrade(object):
     attribute_map = {
         'count': 'count',
         'created_time': 'created_time',
+        'no_price': 'no_price',
         'taker_side': 'taker_side',
         'ticker': 'ticker',
         'trade_id': 'trade_id',
         'yes_price': 'yes_price'
     }
 
-    def __init__(self, count=None, created_time=None, taker_side=None, ticker=None, trade_id=None, yes_price=None):  # noqa: E501
+    def __init__(self, count=None, created_time=None, no_price=None, taker_side=None, ticker=None, trade_id=None, yes_price=None):  # noqa: E501
         """PublicTrade - a model defined in Swagger"""  # noqa: E501
         self._count = None
         self._created_time = None
+        self._no_price = None
         self._taker_side = None
         self._ticker = None
         self._trade_id = None
         self._yes_price = None
         self.discriminator = None
-        if count is not None:
-            self.count = count
-        if created_time is not None:
-            self.created_time = created_time
-        if taker_side is not None:
-            self.taker_side = taker_side
-        if ticker is not None:
-            self.ticker = ticker
-        if trade_id is not None:
-            self.trade_id = trade_id
-        if yes_price is not None:
-            self.yes_price = yes_price
+        self.count = count
+        self.created_time = created_time
+        self.no_price = no_price
+        self.taker_side = taker_side
+        self.ticker = ticker
+        self.trade_id = trade_id
+        self.yes_price = yes_price
 
     @property
     def count(self):
         """Gets the count of this PublicTrade.  # noqa: E501
 
+        Number of contracts to be bought or sold.  # noqa: E501
 
         :return: The count of this PublicTrade.  # noqa: E501
         :rtype: int
@@ -81,10 +80,13 @@ class PublicTrade(object):
     def count(self, count):
         """Sets the count of this PublicTrade.
 
+        Number of contracts to be bought or sold.  # noqa: E501
 
         :param count: The count of this PublicTrade.  # noqa: E501
         :type: int
         """
+        if count is None:
+            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -106,13 +108,39 @@ class PublicTrade(object):
         :param created_time: The created_time of this PublicTrade.  # noqa: E501
         :type: OutputTime
         """
+        if created_time is None:
+            raise ValueError("Invalid value for `created_time`, must not be `None`")  # noqa: E501
 
         self._created_time = created_time
+
+    @property
+    def no_price(self):
+        """Gets the no_price of this PublicTrade.  # noqa: E501
+
+
+        :return: The no_price of this PublicTrade.  # noqa: E501
+        :rtype: Cent
+        """
+        return self._no_price
+
+    @no_price.setter
+    def no_price(self, no_price):
+        """Sets the no_price of this PublicTrade.
+
+
+        :param no_price: The no_price of this PublicTrade.  # noqa: E501
+        :type: Cent
+        """
+        if no_price is None:
+            raise ValueError("Invalid value for `no_price`, must not be `None`")  # noqa: E501
+
+        self._no_price = no_price
 
     @property
     def taker_side(self):
         """Gets the taker_side of this PublicTrade.  # noqa: E501
 
+        Side for the taker of this trade.  # noqa: E501
 
         :return: The taker_side of this PublicTrade.  # noqa: E501
         :rtype: str
@@ -123,10 +151,13 @@ class PublicTrade(object):
     def taker_side(self, taker_side):
         """Sets the taker_side of this PublicTrade.
 
+        Side for the taker of this trade.  # noqa: E501
 
         :param taker_side: The taker_side of this PublicTrade.  # noqa: E501
         :type: str
         """
+        if taker_side is None:
+            raise ValueError("Invalid value for `taker_side`, must not be `None`")  # noqa: E501
         allowed_values = ["yes", "no", "invalid", ""]  # noqa: E501
         if taker_side not in allowed_values:
             raise ValueError(
@@ -140,6 +171,7 @@ class PublicTrade(object):
     def ticker(self):
         """Gets the ticker of this PublicTrade.  # noqa: E501
 
+        Unique identifier for markets.  # noqa: E501
 
         :return: The ticker of this PublicTrade.  # noqa: E501
         :rtype: str
@@ -150,10 +182,13 @@ class PublicTrade(object):
     def ticker(self, ticker):
         """Sets the ticker of this PublicTrade.
 
+        Unique identifier for markets.  # noqa: E501
 
         :param ticker: The ticker of this PublicTrade.  # noqa: E501
         :type: str
         """
+        if ticker is None:
+            raise ValueError("Invalid value for `ticker`, must not be `None`")  # noqa: E501
 
         self._ticker = ticker
 
@@ -161,6 +196,7 @@ class PublicTrade(object):
     def trade_id(self):
         """Gets the trade_id of this PublicTrade.  # noqa: E501
 
+        Unique identifier for this trade.  # noqa: E501
 
         :return: The trade_id of this PublicTrade.  # noqa: E501
         :rtype: str
@@ -171,10 +207,13 @@ class PublicTrade(object):
     def trade_id(self, trade_id):
         """Sets the trade_id of this PublicTrade.
 
+        Unique identifier for this trade.  # noqa: E501
 
         :param trade_id: The trade_id of this PublicTrade.  # noqa: E501
         :type: str
         """
+        if trade_id is None:
+            raise ValueError("Invalid value for `trade_id`, must not be `None`")  # noqa: E501
 
         self._trade_id = trade_id
 
@@ -196,6 +235,8 @@ class PublicTrade(object):
         :param yes_price: The yes_price of this PublicTrade.  # noqa: E501
         :type: Cent
         """
+        if yes_price is None:
+            raise ValueError("Invalid value for `yes_price`, must not be `None`")  # noqa: E501
 
         self._yes_price = yes_price
 

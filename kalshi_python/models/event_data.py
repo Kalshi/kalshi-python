@@ -54,23 +54,18 @@ class EventData(object):
         self._sub_title = None
         self._title = None
         self.discriminator = None
-        if category is not None:
-            self.category = category
-        if event_ticker is not None:
-            self.event_ticker = event_ticker
-        if mutually_exclusive is not None:
-            self.mutually_exclusive = mutually_exclusive
-        if series_ticker is not None:
-            self.series_ticker = series_ticker
-        if sub_title is not None:
-            self.sub_title = sub_title
-        if title is not None:
-            self.title = title
+        self.category = category
+        self.event_ticker = event_ticker
+        self.mutually_exclusive = mutually_exclusive
+        self.series_ticker = series_ticker
+        self.sub_title = sub_title
+        self.title = title
 
     @property
     def category(self):
         """Gets the category of this EventData.  # noqa: E501
 
+        Event category.  # noqa: E501
 
         :return: The category of this EventData.  # noqa: E501
         :rtype: str
@@ -81,10 +76,13 @@ class EventData(object):
     def category(self, category):
         """Sets the category of this EventData.
 
+        Event category.  # noqa: E501
 
         :param category: The category of this EventData.  # noqa: E501
         :type: str
         """
+        if category is None:
+            raise ValueError("Invalid value for `category`, must not be `None`")  # noqa: E501
 
         self._category = category
 
@@ -92,6 +90,7 @@ class EventData(object):
     def event_ticker(self):
         """Gets the event_ticker of this EventData.  # noqa: E501
 
+        Unique identifier for events.  # noqa: E501
 
         :return: The event_ticker of this EventData.  # noqa: E501
         :rtype: str
@@ -102,10 +101,13 @@ class EventData(object):
     def event_ticker(self, event_ticker):
         """Sets the event_ticker of this EventData.
 
+        Unique identifier for events.  # noqa: E501
 
         :param event_ticker: The event_ticker of this EventData.  # noqa: E501
         :type: str
         """
+        if event_ticker is None:
+            raise ValueError("Invalid value for `event_ticker`, must not be `None`")  # noqa: E501
 
         self._event_ticker = event_ticker
 
@@ -113,6 +115,7 @@ class EventData(object):
     def mutually_exclusive(self):
         """Gets the mutually_exclusive of this EventData.  # noqa: E501
 
+        If true then the event is mutually exclusive.  # noqa: E501
 
         :return: The mutually_exclusive of this EventData.  # noqa: E501
         :rtype: bool
@@ -123,10 +126,13 @@ class EventData(object):
     def mutually_exclusive(self, mutually_exclusive):
         """Sets the mutually_exclusive of this EventData.
 
+        If true then the event is mutually exclusive.  # noqa: E501
 
         :param mutually_exclusive: The mutually_exclusive of this EventData.  # noqa: E501
         :type: bool
         """
+        if mutually_exclusive is None:
+            raise ValueError("Invalid value for `mutually_exclusive`, must not be `None`")  # noqa: E501
 
         self._mutually_exclusive = mutually_exclusive
 
@@ -134,6 +140,7 @@ class EventData(object):
     def series_ticker(self):
         """Gets the series_ticker of this EventData.  # noqa: E501
 
+        Unique identifier for series.  # noqa: E501
 
         :return: The series_ticker of this EventData.  # noqa: E501
         :rtype: str
@@ -144,10 +151,13 @@ class EventData(object):
     def series_ticker(self, series_ticker):
         """Sets the series_ticker of this EventData.
 
+        Unique identifier for series.  # noqa: E501
 
         :param series_ticker: The series_ticker of this EventData.  # noqa: E501
         :type: str
         """
+        if series_ticker is None:
+            raise ValueError("Invalid value for `series_ticker`, must not be `None`")  # noqa: E501
 
         self._series_ticker = series_ticker
 
@@ -155,6 +165,7 @@ class EventData(object):
     def sub_title(self):
         """Gets the sub_title of this EventData.  # noqa: E501
 
+        Shortened title.  # noqa: E501
 
         :return: The sub_title of this EventData.  # noqa: E501
         :rtype: str
@@ -165,10 +176,13 @@ class EventData(object):
     def sub_title(self, sub_title):
         """Sets the sub_title of this EventData.
 
+        Shortened title.  # noqa: E501
 
         :param sub_title: The sub_title of this EventData.  # noqa: E501
         :type: str
         """
+        if sub_title is None:
+            raise ValueError("Invalid value for `sub_title`, must not be `None`")  # noqa: E501
 
         self._sub_title = sub_title
 
@@ -176,6 +190,7 @@ class EventData(object):
     def title(self):
         """Gets the title of this EventData.  # noqa: E501
 
+        Event title.  # noqa: E501
 
         :return: The title of this EventData.  # noqa: E501
         :rtype: str
@@ -186,10 +201,13 @@ class EventData(object):
     def title(self, title):
         """Sets the title of this EventData.
 
+        Event title.  # noqa: E501
 
         :param title: The title of this EventData.  # noqa: E501
         :type: str
         """
+        if title is None:
+            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
 
         self._title = title
 

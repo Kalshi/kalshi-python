@@ -32,6 +32,7 @@ class Fill(object):
         'count': 'int',
         'created_time': 'OutputTime',
         'is_taker': 'bool',
+        'no_price': 'Cent',
         'order_id': 'str',
         'side': 'str',
         'ticker': 'str',
@@ -44,6 +45,7 @@ class Fill(object):
         'count': 'count',
         'created_time': 'created_time',
         'is_taker': 'is_taker',
+        'no_price': 'no_price',
         'order_id': 'order_id',
         'side': 'side',
         'ticker': 'ticker',
@@ -51,41 +53,35 @@ class Fill(object):
         'yes_price': 'yes_price'
     }
 
-    def __init__(self, action=None, count=None, created_time=None, is_taker=None, order_id=None, side=None, ticker=None, trade_id=None, yes_price=None):  # noqa: E501
+    def __init__(self, action=None, count=None, created_time=None, is_taker=None, no_price=None, order_id=None, side=None, ticker=None, trade_id=None, yes_price=None):  # noqa: E501
         """Fill - a model defined in Swagger"""  # noqa: E501
         self._action = None
         self._count = None
         self._created_time = None
         self._is_taker = None
+        self._no_price = None
         self._order_id = None
         self._side = None
         self._ticker = None
         self._trade_id = None
         self._yes_price = None
         self.discriminator = None
-        if action is not None:
-            self.action = action
-        if count is not None:
-            self.count = count
-        if created_time is not None:
-            self.created_time = created_time
-        if is_taker is not None:
-            self.is_taker = is_taker
-        if order_id is not None:
-            self.order_id = order_id
-        if side is not None:
-            self.side = side
-        if ticker is not None:
-            self.ticker = ticker
-        if trade_id is not None:
-            self.trade_id = trade_id
-        if yes_price is not None:
-            self.yes_price = yes_price
+        self.action = action
+        self.count = count
+        self.created_time = created_time
+        self.is_taker = is_taker
+        self.no_price = no_price
+        self.order_id = order_id
+        self.side = side
+        self.ticker = ticker
+        self.trade_id = trade_id
+        self.yes_price = yes_price
 
     @property
     def action(self):
         """Gets the action of this Fill.  # noqa: E501
 
+        Specifies if this is a buy or sell order.  # noqa: E501
 
         :return: The action of this Fill.  # noqa: E501
         :rtype: str
@@ -96,10 +92,13 @@ class Fill(object):
     def action(self, action):
         """Sets the action of this Fill.
 
+        Specifies if this is a buy or sell order.  # noqa: E501
 
         :param action: The action of this Fill.  # noqa: E501
         :type: str
         """
+        if action is None:
+            raise ValueError("Invalid value for `action`, must not be `None`")  # noqa: E501
         allowed_values = ["buy", "sell", ""]  # noqa: E501
         if action not in allowed_values:
             raise ValueError(
@@ -113,6 +112,7 @@ class Fill(object):
     def count(self):
         """Gets the count of this Fill.  # noqa: E501
 
+        Number of contracts to be bought or sold.  # noqa: E501
 
         :return: The count of this Fill.  # noqa: E501
         :rtype: int
@@ -123,10 +123,13 @@ class Fill(object):
     def count(self, count):
         """Sets the count of this Fill.
 
+        Number of contracts to be bought or sold.  # noqa: E501
 
         :param count: The count of this Fill.  # noqa: E501
         :type: int
         """
+        if count is None:
+            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -148,6 +151,8 @@ class Fill(object):
         :param created_time: The created_time of this Fill.  # noqa: E501
         :type: OutputTime
         """
+        if created_time is None:
+            raise ValueError("Invalid value for `created_time`, must not be `None`")  # noqa: E501
 
         self._created_time = created_time
 
@@ -155,6 +160,7 @@ class Fill(object):
     def is_taker(self):
         """Gets the is_taker of this Fill.  # noqa: E501
 
+        If true then this fill was a taker.  # noqa: E501
 
         :return: The is_taker of this Fill.  # noqa: E501
         :rtype: bool
@@ -165,17 +171,44 @@ class Fill(object):
     def is_taker(self, is_taker):
         """Sets the is_taker of this Fill.
 
+        If true then this fill was a taker.  # noqa: E501
 
         :param is_taker: The is_taker of this Fill.  # noqa: E501
         :type: bool
         """
+        if is_taker is None:
+            raise ValueError("Invalid value for `is_taker`, must not be `None`")  # noqa: E501
 
         self._is_taker = is_taker
+
+    @property
+    def no_price(self):
+        """Gets the no_price of this Fill.  # noqa: E501
+
+
+        :return: The no_price of this Fill.  # noqa: E501
+        :rtype: Cent
+        """
+        return self._no_price
+
+    @no_price.setter
+    def no_price(self, no_price):
+        """Sets the no_price of this Fill.
+
+
+        :param no_price: The no_price of this Fill.  # noqa: E501
+        :type: Cent
+        """
+        if no_price is None:
+            raise ValueError("Invalid value for `no_price`, must not be `None`")  # noqa: E501
+
+        self._no_price = no_price
 
     @property
     def order_id(self):
         """Gets the order_id of this Fill.  # noqa: E501
 
+        Unique identifier for orders.  # noqa: E501
 
         :return: The order_id of this Fill.  # noqa: E501
         :rtype: str
@@ -186,10 +219,13 @@ class Fill(object):
     def order_id(self, order_id):
         """Sets the order_id of this Fill.
 
+        Unique identifier for orders.  # noqa: E501
 
         :param order_id: The order_id of this Fill.  # noqa: E501
         :type: str
         """
+        if order_id is None:
+            raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501
 
         self._order_id = order_id
 
@@ -197,6 +233,7 @@ class Fill(object):
     def side(self):
         """Gets the side of this Fill.  # noqa: E501
 
+        Specifies if this is a 'yes' or 'no' fill.  # noqa: E501
 
         :return: The side of this Fill.  # noqa: E501
         :rtype: str
@@ -207,10 +244,13 @@ class Fill(object):
     def side(self, side):
         """Sets the side of this Fill.
 
+        Specifies if this is a 'yes' or 'no' fill.  # noqa: E501
 
         :param side: The side of this Fill.  # noqa: E501
         :type: str
         """
+        if side is None:
+            raise ValueError("Invalid value for `side`, must not be `None`")  # noqa: E501
         allowed_values = ["yes", "no", "invalid", ""]  # noqa: E501
         if side not in allowed_values:
             raise ValueError(
@@ -224,6 +264,7 @@ class Fill(object):
     def ticker(self):
         """Gets the ticker of this Fill.  # noqa: E501
 
+        Unique identifier for markets.  # noqa: E501
 
         :return: The ticker of this Fill.  # noqa: E501
         :rtype: str
@@ -234,10 +275,13 @@ class Fill(object):
     def ticker(self, ticker):
         """Sets the ticker of this Fill.
 
+        Unique identifier for markets.  # noqa: E501
 
         :param ticker: The ticker of this Fill.  # noqa: E501
         :type: str
         """
+        if ticker is None:
+            raise ValueError("Invalid value for `ticker`, must not be `None`")  # noqa: E501
 
         self._ticker = ticker
 
@@ -245,6 +289,7 @@ class Fill(object):
     def trade_id(self):
         """Gets the trade_id of this Fill.  # noqa: E501
 
+        Unique identifier for fills.  # noqa: E501
 
         :return: The trade_id of this Fill.  # noqa: E501
         :rtype: str
@@ -255,10 +300,13 @@ class Fill(object):
     def trade_id(self, trade_id):
         """Sets the trade_id of this Fill.
 
+        Unique identifier for fills.  # noqa: E501
 
         :param trade_id: The trade_id of this Fill.  # noqa: E501
         :type: str
         """
+        if trade_id is None:
+            raise ValueError("Invalid value for `trade_id`, must not be `None`")  # noqa: E501
 
         self._trade_id = trade_id
 
@@ -280,6 +328,8 @@ class Fill(object):
         :param yes_price: The yes_price of this Fill.  # noqa: E501
         :type: Cent
         """
+        if yes_price is None:
+            raise ValueError("Invalid value for `yes_price`, must not be `None`")  # noqa: E501
 
         self._yes_price = yes_price
 

@@ -1,4 +1,4 @@
-# kalshi_python.PortfolioApi
+# swagger_client.PortfolioApi
 
 All URIs are relative to *https://trading-api.kalshi.com/trade-api/v2*
 
@@ -24,28 +24,22 @@ BatchCancelOrders
 Endpoint for cancelling up to 20 orders at once. Available to members with advanced access only.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: bearer_token
-configuration = kalshi_python.Configuration()
+configuration = swagger_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-# Configure API key authorization: session_cookie
-configuration = kalshi_python.Configuration()
-configuration.api_key['Cookie'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = kalshi_python.PortfolioApi(kalshi_python.ApiClient(configuration))
-body = kalshi_python.BatchCancelOrdersRequest() # BatchCancelOrdersRequest | Batch orders cancel input data.
+api_instance = swagger_client.PortfolioApi(swagger_client.ApiClient(configuration))
+body = swagger_client.BatchCancelOrdersRequest() # BatchCancelOrdersRequest | Batch orders cancel input data.
 
 try:
     # BatchCancelOrders
@@ -67,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token), [session_cookie](../README.md#session_cookie)
+[bearer_token](../README.md#bearer_token)
 
 ### HTTP request headers
 
@@ -84,28 +78,22 @@ BatchCreateOrders
 Endpoint for submitting a batch of orders.  Each order in the batch is counted against the total rate limit for order operations. Consequently, the size of the batch is capped by the current per-second rate-limit configuration applicable to the user.  At the moment of writing, the limit is 20 orders per batch. Available to members with advanced access only.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: bearer_token
-configuration = kalshi_python.Configuration()
+configuration = swagger_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-# Configure API key authorization: session_cookie
-configuration = kalshi_python.Configuration()
-configuration.api_key['Cookie'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = kalshi_python.PortfolioApi(kalshi_python.ApiClient(configuration))
-body = kalshi_python.BatchCreateOrdersRequest() # BatchCreateOrdersRequest | Batch order create input data.
+api_instance = swagger_client.PortfolioApi(swagger_client.ApiClient(configuration))
+body = swagger_client.BatchCreateOrdersRequest() # BatchCreateOrdersRequest | Batch order create input data.
 
 try:
     # BatchCreateOrders
@@ -127,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token), [session_cookie](../README.md#session_cookie)
+[bearer_token](../README.md#bearer_token)
 
 ### HTTP request headers
 
@@ -144,27 +132,21 @@ CancelOrder
 Endpoint for canceling orders.  The value for the orderId should match the id field of the order you want to decrease. Commonly, DELETE-type endpoints return 204 status with no body content on success. But we can't completely delete the order, as it may be partially filled already. Instead, the DeleteOrder endpoint reduce the order completely, essentially zeroing the remaining resting contracts on it. The zeroed order is returned on the response payload as a form of validation for the client.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: bearer_token
-configuration = kalshi_python.Configuration()
+configuration = swagger_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-# Configure API key authorization: session_cookie
-configuration = kalshi_python.Configuration()
-configuration.api_key['Cookie'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = kalshi_python.PortfolioApi(kalshi_python.ApiClient(configuration))
+api_instance = swagger_client.PortfolioApi(swagger_client.ApiClient(configuration))
 order_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | Order_id input for the current order.
 
 try:
@@ -187,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token), [session_cookie](../README.md#session_cookie)
+[bearer_token](../README.md#bearer_token)
 
 ### HTTP request headers
 
@@ -204,28 +186,22 @@ CreateOrder
 Endpoint for submitting orders in a market.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: bearer_token
-configuration = kalshi_python.Configuration()
+configuration = swagger_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-# Configure API key authorization: session_cookie
-configuration = kalshi_python.Configuration()
-configuration.api_key['Cookie'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = kalshi_python.PortfolioApi(kalshi_python.ApiClient(configuration))
-body = kalshi_python.CreateOrderRequest() # CreateOrderRequest | Order create input data
+api_instance = swagger_client.PortfolioApi(swagger_client.ApiClient(configuration))
+body = swagger_client.CreateOrderRequest() # CreateOrderRequest | Order create input data
 
 try:
     # CreateOrder
@@ -247,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token), [session_cookie](../README.md#session_cookie)
+[bearer_token](../README.md#bearer_token)
 
 ### HTTP request headers
 
@@ -264,28 +240,22 @@ DecreaseOrder
 Endpoint for decreasing the number of contracts in an existing order. This is the only kind of edit available on order quantity. Cancelling an order is equivalent to decreasing an order amount to zero.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: bearer_token
-configuration = kalshi_python.Configuration()
+configuration = swagger_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-# Configure API key authorization: session_cookie
-configuration = kalshi_python.Configuration()
-configuration.api_key['Cookie'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = kalshi_python.PortfolioApi(kalshi_python.ApiClient(configuration))
-body = kalshi_python.DecreaseOrderRequest() # DecreaseOrderRequest | Order data
+api_instance = swagger_client.PortfolioApi(swagger_client.ApiClient(configuration))
+body = swagger_client.DecreaseOrderRequest() # DecreaseOrderRequest | Order data
 order_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | ID of the order to be decreased.
 
 try:
@@ -309,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token), [session_cookie](../README.md#session_cookie)
+[bearer_token](../README.md#bearer_token)
 
 ### HTTP request headers
 
@@ -326,27 +296,21 @@ GetBalance
 Endpoint for getting the balance of the logged-in member.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: bearer_token
-configuration = kalshi_python.Configuration()
+configuration = swagger_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-# Configure API key authorization: session_cookie
-configuration = kalshi_python.Configuration()
-configuration.api_key['Cookie'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = kalshi_python.PortfolioApi(kalshi_python.ApiClient(configuration))
+api_instance = swagger_client.PortfolioApi(swagger_client.ApiClient(configuration))
 
 try:
     # GetBalance
@@ -365,7 +329,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token), [session_cookie](../README.md#session_cookie)
+[bearer_token](../README.md#bearer_token)
 
 ### HTTP request headers
 
@@ -382,33 +346,27 @@ GetFills
 Endpoint for getting all fills for the logged-in member.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: bearer_token
-configuration = kalshi_python.Configuration()
+configuration = swagger_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-# Configure API key authorization: session_cookie
-configuration = kalshi_python.Configuration()
-configuration.api_key['Cookie'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = kalshi_python.PortfolioApi(kalshi_python.ApiClient(configuration))
+api_instance = swagger_client.PortfolioApi(swagger_client.ApiClient(configuration))
 ticker = 'ticker_example' # str | Restricts the response to trades in a specific market. (optional)
 order_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | Restricts the response to trades related to a specific order. (optional)
 min_ts = 789 # int | Restricts the response to trades after a timestamp. (optional)
 max_ts = 789 # int | Restricts the response to trades before a timestamp. (optional)
 limit = 56 # int | Parameter to specify the number of results per page. Defaults to 20. (optional)
-cursor = 'cursor_example' # str | The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again. (optional)
+cursor = 'cursor_example' # str | The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again. (optional)
 
 try:
     # GetFills
@@ -427,7 +385,7 @@ Name | Type | Description  | Notes
  **min_ts** | **int**| Restricts the response to trades after a timestamp. | [optional] 
  **max_ts** | **int**| Restricts the response to trades before a timestamp. | [optional] 
  **limit** | **int**| Parameter to specify the number of results per page. Defaults to 20. | [optional] 
- **cursor** | **str**| The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again. | [optional] 
+ **cursor** | **str**| The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again. | [optional] 
 
 ### Return type
 
@@ -435,7 +393,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token), [session_cookie](../README.md#session_cookie)
+[bearer_token](../README.md#bearer_token)
 
 ### HTTP request headers
 
@@ -452,27 +410,21 @@ GetOrder
 Endpoint for getting a single order.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: bearer_token
-configuration = kalshi_python.Configuration()
+configuration = swagger_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-# Configure API key authorization: session_cookie
-configuration = kalshi_python.Configuration()
-configuration.api_key['Cookie'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = kalshi_python.PortfolioApi(kalshi_python.ApiClient(configuration))
+api_instance = swagger_client.PortfolioApi(swagger_client.ApiClient(configuration))
 order_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | Order_id input for the current order.
 
 try:
@@ -495,7 +447,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token), [session_cookie](../README.md#session_cookie)
+[bearer_token](../README.md#bearer_token)
 
 ### HTTP request headers
 
@@ -512,32 +464,26 @@ GetOrders
 Endpoint for getting all orders for the logged-in member.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: bearer_token
-configuration = kalshi_python.Configuration()
+configuration = swagger_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-# Configure API key authorization: session_cookie
-configuration = kalshi_python.Configuration()
-configuration.api_key['Cookie'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = kalshi_python.PortfolioApi(kalshi_python.ApiClient(configuration))
+api_instance = swagger_client.PortfolioApi(swagger_client.ApiClient(configuration))
 ticker = 'ticker_example' # str | Restricts the response to orders in a single market. (optional)
 event_ticker = 'event_ticker_example' # str | Restricts the response to orders in a single event. (optional)
-min_ts = 789 # int | Restricts the response to orders after a timestamp. (optional)
-max_ts = 789 # int | Restricts the response to orders before a timestamp. (optional)
-cursor = 'cursor_example' # str | The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again. (optional)
+min_ts = 789 # int | Restricts the response to orders after a timestamp, formatted as a Unix Timestamp. (optional)
+max_ts = 789 # int | Restricts the response to orders before a timestamp, formatted as a Unix Timestamp. (optional)
+cursor = 'cursor_example' # str | The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again. (optional)
 limit = 56 # int | Parameter to specify the number of results per page. Defaults to 20. (optional)
 
 try:
@@ -554,9 +500,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ticker** | **str**| Restricts the response to orders in a single market. | [optional] 
  **event_ticker** | **str**| Restricts the response to orders in a single event. | [optional] 
- **min_ts** | **int**| Restricts the response to orders after a timestamp. | [optional] 
- **max_ts** | **int**| Restricts the response to orders before a timestamp. | [optional] 
- **cursor** | **str**| The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again. | [optional] 
+ **min_ts** | **int**| Restricts the response to orders after a timestamp, formatted as a Unix Timestamp. | [optional] 
+ **max_ts** | **int**| Restricts the response to orders before a timestamp, formatted as a Unix Timestamp. | [optional] 
+ **cursor** | **str**| The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again. | [optional] 
  **limit** | **int**| Parameter to specify the number of results per page. Defaults to 20. | [optional] 
 
 ### Return type
@@ -565,7 +511,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token), [session_cookie](../README.md#session_cookie)
+[bearer_token](../README.md#bearer_token)
 
 ### HTTP request headers
 
@@ -582,27 +528,21 @@ GetPortfolioSettlements
 Endpoint for getting the logged-in member's settlements historical track.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: bearer_token
-configuration = kalshi_python.Configuration()
+configuration = swagger_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-# Configure API key authorization: session_cookie
-configuration = kalshi_python.Configuration()
-configuration.api_key['Cookie'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = kalshi_python.PortfolioApi(kalshi_python.ApiClient(configuration))
+api_instance = swagger_client.PortfolioApi(swagger_client.ApiClient(configuration))
 limit = 789 # int | Parameter to specify the number of results per page. Defaults to 20. (optional)
 cursor = 'cursor_example' # str | The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. (optional)
 
@@ -627,7 +567,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token), [session_cookie](../README.md#session_cookie)
+[bearer_token](../README.md#bearer_token)
 
 ### HTTP request headers
 
@@ -644,27 +584,21 @@ GetPositions
 Endpoint for getting all market positions for the logged-in member.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: bearer_token
-configuration = kalshi_python.Configuration()
+configuration = swagger_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-# Configure API key authorization: session_cookie
-configuration = kalshi_python.Configuration()
-configuration.api_key['Cookie'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = kalshi_python.PortfolioApi(kalshi_python.ApiClient(configuration))
+api_instance = swagger_client.PortfolioApi(swagger_client.ApiClient(configuration))
 cursor = 'cursor_example' # str | The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like settlement_status, ticker, or event_ticker were passed in the original query they must be passed again. (optional)
 limit = 56 # int | Parameter to specify the number of results per page. Defaults to 20. (optional)
 settlement_status = 'settlement_status_example' # str | Settlement status of the markets to return. Defaults to unsettled. (optional)
@@ -695,7 +629,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token), [session_cookie](../README.md#session_cookie)
+[bearer_token](../README.md#bearer_token)
 
 ### HTTP request headers
 

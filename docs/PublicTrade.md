@@ -3,12 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  | [optional] 
-**created_time** | [**OutputTime**](OutputTime.md) |  | [optional] 
-**taker_side** | **str** |  | [optional] 
-**ticker** | **str** |  | [optional] 
-**trade_id** | **str** |  | [optional] 
-**yes_price** | [**Cent**](Cent.md) |  | [optional] 
+**count** | **int** | Number of contracts to be bought or sold. | 
+**created_time** | [**OutputTime**](OutputTime.md) |  | 
+**no_price** | [**Cent**](Cent.md) |  | 
+**taker_side** | **str** | Side for the taker of this trade. | 
+**ticker** | **str** | Unique identifier for markets. | 
+**trade_id** | **str** | Unique identifier for this trade. | 
+**yes_price** | [**Cent**](Cent.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

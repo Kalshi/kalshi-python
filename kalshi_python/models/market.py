@@ -108,59 +108,36 @@ class Market(object):
         self._yes_ask = None
         self._yes_bid = None
         self.discriminator = None
-        if can_close_early is not None:
-            self.can_close_early = can_close_early
-        if category is not None:
-            self.category = category
-        if close_time is not None:
-            self.close_time = close_time
-        if event_ticker is not None:
-            self.event_ticker = event_ticker
-        if expiration_time is not None:
-            self.expiration_time = expiration_time
-        if expiration_value is not None:
-            self.expiration_value = expiration_value
-        if last_price is not None:
-            self.last_price = last_price
-        if liquidity is not None:
-            self.liquidity = liquidity
-        if no_ask is not None:
-            self.no_ask = no_ask
-        if no_bid is not None:
-            self.no_bid = no_bid
-        if open_interest is not None:
-            self.open_interest = open_interest
-        if open_time is not None:
-            self.open_time = open_time
-        if previous_price is not None:
-            self.previous_price = previous_price
-        if previous_yes_ask is not None:
-            self.previous_yes_ask = previous_yes_ask
-        if previous_yes_bid is not None:
-            self.previous_yes_bid = previous_yes_bid
-        if result is not None:
-            self.result = result
-        if risk_limit_cents is not None:
-            self.risk_limit_cents = risk_limit_cents
-        if status is not None:
-            self.status = status
-        if subtitle is not None:
-            self.subtitle = subtitle
-        if ticker is not None:
-            self.ticker = ticker
-        if volume is not None:
-            self.volume = volume
-        if volume_24h is not None:
-            self.volume_24h = volume_24h
-        if yes_ask is not None:
-            self.yes_ask = yes_ask
-        if yes_bid is not None:
-            self.yes_bid = yes_bid
+        self.can_close_early = can_close_early
+        self.category = category
+        self.close_time = close_time
+        self.event_ticker = event_ticker
+        self.expiration_time = expiration_time
+        self.expiration_value = expiration_value
+        self.last_price = last_price
+        self.liquidity = liquidity
+        self.no_ask = no_ask
+        self.no_bid = no_bid
+        self.open_interest = open_interest
+        self.open_time = open_time
+        self.previous_price = previous_price
+        self.previous_yes_ask = previous_yes_ask
+        self.previous_yes_bid = previous_yes_bid
+        self.result = result
+        self.risk_limit_cents = risk_limit_cents
+        self.status = status
+        self.subtitle = subtitle
+        self.ticker = ticker
+        self.volume = volume
+        self.volume_24h = volume_24h
+        self.yes_ask = yes_ask
+        self.yes_bid = yes_bid
 
     @property
     def can_close_early(self):
         """Gets the can_close_early of this Market.  # noqa: E501
 
+        If true then this market can close earlier then the time provided on close_time.  # noqa: E501
 
         :return: The can_close_early of this Market.  # noqa: E501
         :rtype: bool
@@ -171,10 +148,13 @@ class Market(object):
     def can_close_early(self, can_close_early):
         """Sets the can_close_early of this Market.
 
+        If true then this market can close earlier then the time provided on close_time.  # noqa: E501
 
         :param can_close_early: The can_close_early of this Market.  # noqa: E501
         :type: bool
         """
+        if can_close_early is None:
+            raise ValueError("Invalid value for `can_close_early`, must not be `None`")  # noqa: E501
 
         self._can_close_early = can_close_early
 
@@ -182,6 +162,7 @@ class Market(object):
     def category(self):
         """Gets the category of this Market.  # noqa: E501
 
+        Category for this market.  # noqa: E501
 
         :return: The category of this Market.  # noqa: E501
         :rtype: str
@@ -192,10 +173,13 @@ class Market(object):
     def category(self, category):
         """Sets the category of this Market.
 
+        Category for this market.  # noqa: E501
 
         :param category: The category of this Market.  # noqa: E501
         :type: str
         """
+        if category is None:
+            raise ValueError("Invalid value for `category`, must not be `None`")  # noqa: E501
 
         self._category = category
 
@@ -217,6 +201,8 @@ class Market(object):
         :param close_time: The close_time of this Market.  # noqa: E501
         :type: OutputTime
         """
+        if close_time is None:
+            raise ValueError("Invalid value for `close_time`, must not be `None`")  # noqa: E501
 
         self._close_time = close_time
 
@@ -224,6 +210,7 @@ class Market(object):
     def event_ticker(self):
         """Gets the event_ticker of this Market.  # noqa: E501
 
+        Unique identifier for events.  # noqa: E501
 
         :return: The event_ticker of this Market.  # noqa: E501
         :rtype: str
@@ -234,10 +221,13 @@ class Market(object):
     def event_ticker(self, event_ticker):
         """Sets the event_ticker of this Market.
 
+        Unique identifier for events.  # noqa: E501
 
         :param event_ticker: The event_ticker of this Market.  # noqa: E501
         :type: str
         """
+        if event_ticker is None:
+            raise ValueError("Invalid value for `event_ticker`, must not be `None`")  # noqa: E501
 
         self._event_ticker = event_ticker
 
@@ -259,6 +249,8 @@ class Market(object):
         :param expiration_time: The expiration_time of this Market.  # noqa: E501
         :type: OutputTime
         """
+        if expiration_time is None:
+            raise ValueError("Invalid value for `expiration_time`, must not be `None`")  # noqa: E501
 
         self._expiration_time = expiration_time
 
@@ -266,6 +258,7 @@ class Market(object):
     def expiration_value(self):
         """Gets the expiration_value of this Market.  # noqa: E501
 
+        The value that was considered for the settlement.  # noqa: E501
 
         :return: The expiration_value of this Market.  # noqa: E501
         :rtype: str
@@ -276,10 +269,13 @@ class Market(object):
     def expiration_value(self, expiration_value):
         """Sets the expiration_value of this Market.
 
+        The value that was considered for the settlement.  # noqa: E501
 
         :param expiration_value: The expiration_value of this Market.  # noqa: E501
         :type: str
         """
+        if expiration_value is None:
+            raise ValueError("Invalid value for `expiration_value`, must not be `None`")  # noqa: E501
 
         self._expiration_value = expiration_value
 
@@ -301,6 +297,8 @@ class Market(object):
         :param last_price: The last_price of this Market.  # noqa: E501
         :type: Cent
         """
+        if last_price is None:
+            raise ValueError("Invalid value for `last_price`, must not be `None`")  # noqa: E501
 
         self._last_price = last_price
 
@@ -322,6 +320,8 @@ class Market(object):
         :param liquidity: The liquidity of this Market.  # noqa: E501
         :type: Cent
         """
+        if liquidity is None:
+            raise ValueError("Invalid value for `liquidity`, must not be `None`")  # noqa: E501
 
         self._liquidity = liquidity
 
@@ -343,6 +343,8 @@ class Market(object):
         :param no_ask: The no_ask of this Market.  # noqa: E501
         :type: Cent
         """
+        if no_ask is None:
+            raise ValueError("Invalid value for `no_ask`, must not be `None`")  # noqa: E501
 
         self._no_ask = no_ask
 
@@ -364,6 +366,8 @@ class Market(object):
         :param no_bid: The no_bid of this Market.  # noqa: E501
         :type: Cent
         """
+        if no_bid is None:
+            raise ValueError("Invalid value for `no_bid`, must not be `None`")  # noqa: E501
 
         self._no_bid = no_bid
 
@@ -371,6 +375,7 @@ class Market(object):
     def open_interest(self):
         """Gets the open_interest of this Market.  # noqa: E501
 
+        Number of contracts bought on this market disconsidering netting.  # noqa: E501
 
         :return: The open_interest of this Market.  # noqa: E501
         :rtype: int
@@ -381,10 +386,13 @@ class Market(object):
     def open_interest(self, open_interest):
         """Sets the open_interest of this Market.
 
+        Number of contracts bought on this market disconsidering netting.  # noqa: E501
 
         :param open_interest: The open_interest of this Market.  # noqa: E501
         :type: int
         """
+        if open_interest is None:
+            raise ValueError("Invalid value for `open_interest`, must not be `None`")  # noqa: E501
 
         self._open_interest = open_interest
 
@@ -406,6 +414,8 @@ class Market(object):
         :param open_time: The open_time of this Market.  # noqa: E501
         :type: OutputTime
         """
+        if open_time is None:
+            raise ValueError("Invalid value for `open_time`, must not be `None`")  # noqa: E501
 
         self._open_time = open_time
 
@@ -427,6 +437,8 @@ class Market(object):
         :param previous_price: The previous_price of this Market.  # noqa: E501
         :type: Cent
         """
+        if previous_price is None:
+            raise ValueError("Invalid value for `previous_price`, must not be `None`")  # noqa: E501
 
         self._previous_price = previous_price
 
@@ -448,6 +460,8 @@ class Market(object):
         :param previous_yes_ask: The previous_yes_ask of this Market.  # noqa: E501
         :type: Cent
         """
+        if previous_yes_ask is None:
+            raise ValueError("Invalid value for `previous_yes_ask`, must not be `None`")  # noqa: E501
 
         self._previous_yes_ask = previous_yes_ask
 
@@ -469,6 +483,8 @@ class Market(object):
         :param previous_yes_bid: The previous_yes_bid of this Market.  # noqa: E501
         :type: Cent
         """
+        if previous_yes_bid is None:
+            raise ValueError("Invalid value for `previous_yes_bid`, must not be `None`")  # noqa: E501
 
         self._previous_yes_bid = previous_yes_bid
 
@@ -476,6 +492,7 @@ class Market(object):
     def result(self):
         """Gets the result of this Market.  # noqa: E501
 
+        Settlement result for this market.  # noqa: E501
 
         :return: The result of this Market.  # noqa: E501
         :rtype: str
@@ -486,10 +503,13 @@ class Market(object):
     def result(self, result):
         """Sets the result of this Market.
 
+        Settlement result for this market.  # noqa: E501
 
         :param result: The result of this Market.  # noqa: E501
         :type: str
         """
+        if result is None:
+            raise ValueError("Invalid value for `result`, must not be `None`")  # noqa: E501
         allowed_values = ["", "yes", "no", "void", "invalid", "all_no", "all_yes"]  # noqa: E501
         if result not in allowed_values:
             raise ValueError(
@@ -517,6 +537,8 @@ class Market(object):
         :param risk_limit_cents: The risk_limit_cents of this Market.  # noqa: E501
         :type: Cent
         """
+        if risk_limit_cents is None:
+            raise ValueError("Invalid value for `risk_limit_cents`, must not be `None`")  # noqa: E501
 
         self._risk_limit_cents = risk_limit_cents
 
@@ -524,6 +546,7 @@ class Market(object):
     def status(self):
         """Gets the status of this Market.  # noqa: E501
 
+        Represents the current status of a market.  # noqa: E501
 
         :return: The status of this Market.  # noqa: E501
         :rtype: object
@@ -534,10 +557,13 @@ class Market(object):
     def status(self, status):
         """Sets the status of this Market.
 
+        Represents the current status of a market.  # noqa: E501
 
         :param status: The status of this Market.  # noqa: E501
         :type: object
         """
+        if status is None:
+            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 
@@ -545,6 +571,7 @@ class Market(object):
     def subtitle(self):
         """Gets the subtitle of this Market.  # noqa: E501
 
+        Shortened title for this market.  # noqa: E501
 
         :return: The subtitle of this Market.  # noqa: E501
         :rtype: str
@@ -555,10 +582,13 @@ class Market(object):
     def subtitle(self, subtitle):
         """Sets the subtitle of this Market.
 
+        Shortened title for this market.  # noqa: E501
 
         :param subtitle: The subtitle of this Market.  # noqa: E501
         :type: str
         """
+        if subtitle is None:
+            raise ValueError("Invalid value for `subtitle`, must not be `None`")  # noqa: E501
 
         self._subtitle = subtitle
 
@@ -566,6 +596,7 @@ class Market(object):
     def ticker(self):
         """Gets the ticker of this Market.  # noqa: E501
 
+        Unique identifier for markets.  # noqa: E501
 
         :return: The ticker of this Market.  # noqa: E501
         :rtype: str
@@ -576,10 +607,13 @@ class Market(object):
     def ticker(self, ticker):
         """Sets the ticker of this Market.
 
+        Unique identifier for markets.  # noqa: E501
 
         :param ticker: The ticker of this Market.  # noqa: E501
         :type: str
         """
+        if ticker is None:
+            raise ValueError("Invalid value for `ticker`, must not be `None`")  # noqa: E501
 
         self._ticker = ticker
 
@@ -587,6 +621,7 @@ class Market(object):
     def volume(self):
         """Gets the volume of this Market.  # noqa: E501
 
+        Number of contracts bought on this market.  # noqa: E501
 
         :return: The volume of this Market.  # noqa: E501
         :rtype: int
@@ -597,10 +632,13 @@ class Market(object):
     def volume(self, volume):
         """Sets the volume of this Market.
 
+        Number of contracts bought on this market.  # noqa: E501
 
         :param volume: The volume of this Market.  # noqa: E501
         :type: int
         """
+        if volume is None:
+            raise ValueError("Invalid value for `volume`, must not be `None`")  # noqa: E501
 
         self._volume = volume
 
@@ -608,6 +646,7 @@ class Market(object):
     def volume_24h(self):
         """Gets the volume_24h of this Market.  # noqa: E501
 
+        Number of contracts bought on this market in the past day.  # noqa: E501
 
         :return: The volume_24h of this Market.  # noqa: E501
         :rtype: int
@@ -618,10 +657,13 @@ class Market(object):
     def volume_24h(self, volume_24h):
         """Sets the volume_24h of this Market.
 
+        Number of contracts bought on this market in the past day.  # noqa: E501
 
         :param volume_24h: The volume_24h of this Market.  # noqa: E501
         :type: int
         """
+        if volume_24h is None:
+            raise ValueError("Invalid value for `volume_24h`, must not be `None`")  # noqa: E501
 
         self._volume_24h = volume_24h
 
@@ -643,6 +685,8 @@ class Market(object):
         :param yes_ask: The yes_ask of this Market.  # noqa: E501
         :type: Cent
         """
+        if yes_ask is None:
+            raise ValueError("Invalid value for `yes_ask`, must not be `None`")  # noqa: E501
 
         self._yes_ask = yes_ask
 
@@ -664,6 +708,8 @@ class Market(object):
         :param yes_bid: The yes_bid of this Market.  # noqa: E501
         :type: Cent
         """
+        if yes_bid is None:
+            raise ValueError("Invalid value for `yes_bid`, must not be `None`")  # noqa: E501
 
         self._yes_bid = yes_bid
 

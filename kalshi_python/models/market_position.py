@@ -57,20 +57,13 @@ class MarketPosition(object):
         self._ticker = None
         self._total_traded = None
         self.discriminator = None
-        if fees_paid is not None:
-            self.fees_paid = fees_paid
-        if market_exposure is not None:
-            self.market_exposure = market_exposure
-        if position is not None:
-            self.position = position
-        if realized_pnl is not None:
-            self.realized_pnl = realized_pnl
-        if resting_orders_count is not None:
-            self.resting_orders_count = resting_orders_count
-        if ticker is not None:
-            self.ticker = ticker
-        if total_traded is not None:
-            self.total_traded = total_traded
+        self.fees_paid = fees_paid
+        self.market_exposure = market_exposure
+        self.position = position
+        self.realized_pnl = realized_pnl
+        self.resting_orders_count = resting_orders_count
+        self.ticker = ticker
+        self.total_traded = total_traded
 
     @property
     def fees_paid(self):
@@ -90,6 +83,8 @@ class MarketPosition(object):
         :param fees_paid: The fees_paid of this MarketPosition.  # noqa: E501
         :type: Cent
         """
+        if fees_paid is None:
+            raise ValueError("Invalid value for `fees_paid`, must not be `None`")  # noqa: E501
 
         self._fees_paid = fees_paid
 
@@ -111,6 +106,8 @@ class MarketPosition(object):
         :param market_exposure: The market_exposure of this MarketPosition.  # noqa: E501
         :type: Cent
         """
+        if market_exposure is None:
+            raise ValueError("Invalid value for `market_exposure`, must not be `None`")  # noqa: E501
 
         self._market_exposure = market_exposure
 
@@ -118,6 +115,7 @@ class MarketPosition(object):
     def position(self):
         """Gets the position of this MarketPosition.  # noqa: E501
 
+        Number of contracts bought in this market. Negative means NO contracts and positive means YES contracts.  # noqa: E501
 
         :return: The position of this MarketPosition.  # noqa: E501
         :rtype: int
@@ -128,10 +126,13 @@ class MarketPosition(object):
     def position(self, position):
         """Sets the position of this MarketPosition.
 
+        Number of contracts bought in this market. Negative means NO contracts and positive means YES contracts.  # noqa: E501
 
         :param position: The position of this MarketPosition.  # noqa: E501
         :type: int
         """
+        if position is None:
+            raise ValueError("Invalid value for `position`, must not be `None`")  # noqa: E501
 
         self._position = position
 
@@ -153,6 +154,8 @@ class MarketPosition(object):
         :param realized_pnl: The realized_pnl of this MarketPosition.  # noqa: E501
         :type: Cent
         """
+        if realized_pnl is None:
+            raise ValueError("Invalid value for `realized_pnl`, must not be `None`")  # noqa: E501
 
         self._realized_pnl = realized_pnl
 
@@ -160,6 +163,7 @@ class MarketPosition(object):
     def resting_orders_count(self):
         """Gets the resting_orders_count of this MarketPosition.  # noqa: E501
 
+        Aggregate size of resting orders in contract units.  # noqa: E501
 
         :return: The resting_orders_count of this MarketPosition.  # noqa: E501
         :rtype: int
@@ -170,10 +174,13 @@ class MarketPosition(object):
     def resting_orders_count(self, resting_orders_count):
         """Sets the resting_orders_count of this MarketPosition.
 
+        Aggregate size of resting orders in contract units.  # noqa: E501
 
         :param resting_orders_count: The resting_orders_count of this MarketPosition.  # noqa: E501
         :type: int
         """
+        if resting_orders_count is None:
+            raise ValueError("Invalid value for `resting_orders_count`, must not be `None`")  # noqa: E501
 
         self._resting_orders_count = resting_orders_count
 
@@ -181,6 +188,7 @@ class MarketPosition(object):
     def ticker(self):
         """Gets the ticker of this MarketPosition.  # noqa: E501
 
+        Unique identifier for the market.  # noqa: E501
 
         :return: The ticker of this MarketPosition.  # noqa: E501
         :rtype: str
@@ -191,10 +199,13 @@ class MarketPosition(object):
     def ticker(self, ticker):
         """Sets the ticker of this MarketPosition.
 
+        Unique identifier for the market.  # noqa: E501
 
         :param ticker: The ticker of this MarketPosition.  # noqa: E501
         :type: str
         """
+        if ticker is None:
+            raise ValueError("Invalid value for `ticker`, must not be `None`")  # noqa: E501
 
         self._ticker = ticker
 
@@ -216,6 +227,8 @@ class MarketPosition(object):
         :param total_traded: The total_traded of this MarketPosition.  # noqa: E501
         :type: Cent
         """
+        if total_traded is None:
+            raise ValueError("Invalid value for `total_traded`, must not be `None`")  # noqa: E501
 
         self._total_traded = total_traded
 

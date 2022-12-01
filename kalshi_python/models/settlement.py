@@ -60,27 +60,20 @@ class Settlement(object):
         self._yes_count = None
         self._yes_total_cost = None
         self.discriminator = None
-        if market_result is not None:
-            self.market_result = market_result
-        if no_count is not None:
-            self.no_count = no_count
-        if no_total_cost is not None:
-            self.no_total_cost = no_total_cost
-        if revenue is not None:
-            self.revenue = revenue
-        if settled_time is not None:
-            self.settled_time = settled_time
-        if ticker is not None:
-            self.ticker = ticker
-        if yes_count is not None:
-            self.yes_count = yes_count
-        if yes_total_cost is not None:
-            self.yes_total_cost = yes_total_cost
+        self.market_result = market_result
+        self.no_count = no_count
+        self.no_total_cost = no_total_cost
+        self.revenue = revenue
+        self.settled_time = settled_time
+        self.ticker = ticker
+        self.yes_count = yes_count
+        self.yes_total_cost = yes_total_cost
 
     @property
     def market_result(self):
         """Gets the market_result of this Settlement.  # noqa: E501
 
+        Settlement result for this market.  # noqa: E501
 
         :return: The market_result of this Settlement.  # noqa: E501
         :rtype: str
@@ -91,10 +84,13 @@ class Settlement(object):
     def market_result(self, market_result):
         """Sets the market_result of this Settlement.
 
+        Settlement result for this market.  # noqa: E501
 
         :param market_result: The market_result of this Settlement.  # noqa: E501
         :type: str
         """
+        if market_result is None:
+            raise ValueError("Invalid value for `market_result`, must not be `None`")  # noqa: E501
 
         self._market_result = market_result
 
@@ -102,6 +98,7 @@ class Settlement(object):
     def no_count(self):
         """Gets the no_count of this Settlement.  # noqa: E501
 
+        Number of no contracts owned on settlement.  # noqa: E501
 
         :return: The no_count of this Settlement.  # noqa: E501
         :rtype: int
@@ -112,10 +109,13 @@ class Settlement(object):
     def no_count(self, no_count):
         """Sets the no_count of this Settlement.
 
+        Number of no contracts owned on settlement.  # noqa: E501
 
         :param no_count: The no_count of this Settlement.  # noqa: E501
         :type: int
         """
+        if no_count is None:
+            raise ValueError("Invalid value for `no_count`, must not be `None`")  # noqa: E501
 
         self._no_count = no_count
 
@@ -137,6 +137,8 @@ class Settlement(object):
         :param no_total_cost: The no_total_cost of this Settlement.  # noqa: E501
         :type: Cent
         """
+        if no_total_cost is None:
+            raise ValueError("Invalid value for `no_total_cost`, must not be `None`")  # noqa: E501
 
         self._no_total_cost = no_total_cost
 
@@ -158,6 +160,8 @@ class Settlement(object):
         :param revenue: The revenue of this Settlement.  # noqa: E501
         :type: Cent
         """
+        if revenue is None:
+            raise ValueError("Invalid value for `revenue`, must not be `None`")  # noqa: E501
 
         self._revenue = revenue
 
@@ -179,6 +183,8 @@ class Settlement(object):
         :param settled_time: The settled_time of this Settlement.  # noqa: E501
         :type: OutputTime
         """
+        if settled_time is None:
+            raise ValueError("Invalid value for `settled_time`, must not be `None`")  # noqa: E501
 
         self._settled_time = settled_time
 
@@ -186,6 +192,7 @@ class Settlement(object):
     def ticker(self):
         """Gets the ticker of this Settlement.  # noqa: E501
 
+        Unique identifier for markets.  # noqa: E501
 
         :return: The ticker of this Settlement.  # noqa: E501
         :rtype: str
@@ -196,10 +203,13 @@ class Settlement(object):
     def ticker(self, ticker):
         """Sets the ticker of this Settlement.
 
+        Unique identifier for markets.  # noqa: E501
 
         :param ticker: The ticker of this Settlement.  # noqa: E501
         :type: str
         """
+        if ticker is None:
+            raise ValueError("Invalid value for `ticker`, must not be `None`")  # noqa: E501
 
         self._ticker = ticker
 
@@ -207,6 +217,7 @@ class Settlement(object):
     def yes_count(self):
         """Gets the yes_count of this Settlement.  # noqa: E501
 
+        Number of yes contracts owned on settlement.  # noqa: E501
 
         :return: The yes_count of this Settlement.  # noqa: E501
         :rtype: int
@@ -217,10 +228,13 @@ class Settlement(object):
     def yes_count(self, yes_count):
         """Sets the yes_count of this Settlement.
 
+        Number of yes contracts owned on settlement.  # noqa: E501
 
         :param yes_count: The yes_count of this Settlement.  # noqa: E501
         :type: int
         """
+        if yes_count is None:
+            raise ValueError("Invalid value for `yes_count`, must not be `None`")  # noqa: E501
 
         self._yes_count = yes_count
 
@@ -242,6 +256,8 @@ class Settlement(object):
         :param yes_total_cost: The yes_total_cost of this Settlement.  # noqa: E501
         :type: Cent
         """
+        if yes_total_cost is None:
+            raise ValueError("Invalid value for `yes_total_cost`, must not be `None`")  # noqa: E501
 
         self._yes_total_cost = yes_total_cost
 

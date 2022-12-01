@@ -1,30 +1,31 @@
-# kalshi_python.ExchangeApi
+# swagger_client.ExchangeApi
 
 All URIs are relative to *https://trading-api.kalshi.com/trade-api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_exchange_status**](ExchangeApi.md#get_exchange_status) | **GET** /exchange/status | Endpoint for getting the exchange status.
+[**get_exchange_status**](ExchangeApi.md#get_exchange_status) | **GET** /exchange/status | GetExchangeStatus
 
 # **get_exchange_status**
 > ExchangeStatus get_exchange_status()
 
+GetExchangeStatus
+
 Endpoint for getting the exchange status.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import kalshi_python
-from kalshi_python.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = kalshi_python.ExchangeApi()
+api_instance = swagger_client.ExchangeApi()
 
 try:
-    # Endpoint for getting the exchange status.
+    # GetExchangeStatus
     api_response = api_instance.get_exchange_status()
     pprint(api_response)
 except ApiException as e:

@@ -234,7 +234,7 @@ class MarketApi(object):
         :param async_req bool
         :param str ticker: Market ticker (required)
         :param int limit: Parameter to specify the number of results per page. Defaults to 20.
-        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again.
+        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like max_ts or min_ts were passed in the original query they must be passed again.
         :param int min_ts: If provided, MinTs restricts history to trades starting from MinTs.  Default value: 1 hour ago.
         :param int max_ts: If provided, MaxTs restricts history to trades up until MaxTs
         :return: GetMarketHistoryResponse
@@ -260,7 +260,7 @@ class MarketApi(object):
         :param async_req bool
         :param str ticker: Market ticker (required)
         :param int limit: Parameter to specify the number of results per page. Defaults to 20.
-        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again.
+        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like max_ts or min_ts were passed in the original query they must be passed again.
         :param int min_ts: If provided, MinTs restricts history to trades starting from MinTs.  Default value: 1 hour ago.
         :param int max_ts: If provided, MaxTs restricts history to trades up until MaxTs
         :return: GetMarketHistoryResponse
@@ -443,7 +443,7 @@ class MarketApi(object):
 
         :param async_req bool
         :param int limit: Parameter to specify the number of results per page. Defaults to 20.
-        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again.
+        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like tickers, max_ts or min_ts were passed in the original query they must be passed again.
         :param str event_ticker: Event ticker to retrieve markets for.
         :param str series_ticker: Series ticker to retrieve contracts for.
         :param int max_close_ts: Restricts the markets to those that are closing in or before this timestamp.
@@ -472,7 +472,7 @@ class MarketApi(object):
 
         :param async_req bool
         :param int limit: Parameter to specify the number of results per page. Defaults to 20.
-        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again.
+        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like tickers, max_ts or min_ts were passed in the original query they must be passed again.
         :param str event_ticker: Event ticker to retrieve markets for.
         :param str series_ticker: Series ticker to retrieve contracts for.
         :param int max_close_ts: Restricts the markets to those that are closing in or before this timestamp.
@@ -656,7 +656,7 @@ class MarketApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again.
+        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again.
         :param int limit: Parameter to specify the number of results per page. Defaults to 20.
         :param str ticker: Parameter to specify a specific market to get trades from.
         :param int min_ts: Restricts the response to trades after a timestamp.
@@ -682,7 +682,7 @@ class MarketApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again.
+        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again.
         :param int limit: Parameter to specify the number of results per page. Defaults to 20.
         :param str ticker: Parameter to specify a specific market to get trades from.
         :param int min_ts: Restricts the response to trades after a timestamp.

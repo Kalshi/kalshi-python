@@ -113,7 +113,7 @@ class PortfolioApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['bearer_token', 'session_cookie']  # noqa: E501
+        auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/portfolio/orders/batched', 'DELETE',
@@ -212,7 +212,7 @@ class PortfolioApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['bearer_token', 'session_cookie']  # noqa: E501
+        auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/portfolio/orders/batched', 'POST',
@@ -307,7 +307,7 @@ class PortfolioApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['bearer_token', 'session_cookie']  # noqa: E501
+        auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/portfolio/orders/{order_id}', 'DELETE',
@@ -406,7 +406,7 @@ class PortfolioApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['bearer_token', 'session_cookie']  # noqa: E501
+        auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/portfolio/orders', 'POST',
@@ -513,7 +513,7 @@ class PortfolioApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['bearer_token', 'session_cookie']  # noqa: E501
+        auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/portfolio/orders/{order_id}/decrease', 'POST',
@@ -600,7 +600,7 @@ class PortfolioApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['bearer_token', 'session_cookie']  # noqa: E501
+        auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/portfolio/balance', 'GET',
@@ -633,7 +633,7 @@ class PortfolioApi(object):
         :param int min_ts: Restricts the response to trades after a timestamp.
         :param int max_ts: Restricts the response to trades before a timestamp.
         :param int limit: Parameter to specify the number of results per page. Defaults to 20.
-        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again.
+        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again.
         :return: GetFillsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -660,7 +660,7 @@ class PortfolioApi(object):
         :param int min_ts: Restricts the response to trades after a timestamp.
         :param int max_ts: Restricts the response to trades before a timestamp.
         :param int limit: Parameter to specify the number of results per page. Defaults to 20.
-        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again.
+        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again.
         :return: GetFillsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -711,7 +711,7 @@ class PortfolioApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['bearer_token', 'session_cookie']  # noqa: E501
+        auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/portfolio/fills', 'GET',
@@ -806,7 +806,7 @@ class PortfolioApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['bearer_token', 'session_cookie']  # noqa: E501
+        auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/portfolio/orders/{order_id}', 'GET',
@@ -836,9 +836,9 @@ class PortfolioApi(object):
         :param async_req bool
         :param str ticker: Restricts the response to orders in a single market.
         :param str event_ticker: Restricts the response to orders in a single event.
-        :param int min_ts: Restricts the response to orders after a timestamp.
-        :param int max_ts: Restricts the response to orders before a timestamp.
-        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again.
+        :param int min_ts: Restricts the response to orders after a timestamp, formatted as a Unix Timestamp.
+        :param int max_ts: Restricts the response to orders before a timestamp, formatted as a Unix Timestamp.
+        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again.
         :param int limit: Parameter to specify the number of results per page. Defaults to 20.
         :return: GetOrdersResponse
                  If the method is called asynchronously,
@@ -863,9 +863,9 @@ class PortfolioApi(object):
         :param async_req bool
         :param str ticker: Restricts the response to orders in a single market.
         :param str event_ticker: Restricts the response to orders in a single event.
-        :param int min_ts: Restricts the response to orders after a timestamp.
-        :param int max_ts: Restricts the response to orders before a timestamp.
-        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like market_ticker, max_ts or min_ts were passed in the original query they must be passed again.
+        :param int min_ts: Restricts the response to orders after a timestamp, formatted as a Unix Timestamp.
+        :param int max_ts: Restricts the response to orders before a timestamp, formatted as a Unix Timestamp.
+        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again.
         :param int limit: Parameter to specify the number of results per page. Defaults to 20.
         :return: GetOrdersResponse
                  If the method is called asynchronously,
@@ -917,7 +917,7 @@ class PortfolioApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['bearer_token', 'session_cookie']  # noqa: E501
+        auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/portfolio/orders', 'GET',
@@ -1012,7 +1012,7 @@ class PortfolioApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['bearer_token', 'session_cookie']  # noqa: E501
+        auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/portfolio/settlements', 'GET',
@@ -1119,7 +1119,7 @@ class PortfolioApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['bearer_token', 'session_cookie']  # noqa: E501
+        auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/portfolio/positions', 'GET',

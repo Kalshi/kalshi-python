@@ -28,24 +28,30 @@ class DecreaseOrderRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'reduce_by': 'int'
+        'reduce_by': 'int',
+        'reduce_to': 'int'
     }
 
     attribute_map = {
-        'reduce_by': 'reduce_by'
+        'reduce_by': 'reduce_by',
+        'reduce_to': 'reduce_to'
     }
 
-    def __init__(self, reduce_by=None):  # noqa: E501
+    def __init__(self, reduce_by=None, reduce_to=None):  # noqa: E501
         """DecreaseOrderRequest - a model defined in Swagger"""  # noqa: E501
         self._reduce_by = None
+        self._reduce_to = None
         self.discriminator = None
-        self.reduce_by = reduce_by
+        if reduce_by is not None:
+            self.reduce_by = reduce_by
+        if reduce_to is not None:
+            self.reduce_to = reduce_to
 
     @property
     def reduce_by(self):
         """Gets the reduce_by of this DecreaseOrderRequest.  # noqa: E501
 
-        Number of contracts to decrease the order's count by.  # noqa: E501
+        Number of contracts to decrease the order's count by. One of reduce_by or reduce_to must be provided.  # noqa: E501
 
         :return: The reduce_by of this DecreaseOrderRequest.  # noqa: E501
         :rtype: int
@@ -56,15 +62,36 @@ class DecreaseOrderRequest(object):
     def reduce_by(self, reduce_by):
         """Sets the reduce_by of this DecreaseOrderRequest.
 
-        Number of contracts to decrease the order's count by.  # noqa: E501
+        Number of contracts to decrease the order's count by. One of reduce_by or reduce_to must be provided.  # noqa: E501
 
         :param reduce_by: The reduce_by of this DecreaseOrderRequest.  # noqa: E501
         :type: int
         """
-        if reduce_by is None:
-            raise ValueError("Invalid value for `reduce_by`, must not be `None`")  # noqa: E501
 
         self._reduce_by = reduce_by
+
+    @property
+    def reduce_to(self):
+        """Gets the reduce_to of this DecreaseOrderRequest.  # noqa: E501
+
+        Number of contracts to decrease the order to.  If the orders remaining count is lower, it does nothing. One of reduce_by or reduce_to must be provided  # noqa: E501
+
+        :return: The reduce_to of this DecreaseOrderRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._reduce_to
+
+    @reduce_to.setter
+    def reduce_to(self, reduce_to):
+        """Sets the reduce_to of this DecreaseOrderRequest.
+
+        Number of contracts to decrease the order to.  If the orders remaining count is lower, it does nothing. One of reduce_by or reduce_to must be provided  # noqa: E501
+
+        :param reduce_to: The reduce_to of this DecreaseOrderRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._reduce_to = reduce_to
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,10 +33,10 @@ class CreateOrderRequest(object):
         'client_order_id': 'str',
         'count': 'int',
         'expiration_ts': 'int',
-        'market_ticker': 'str',
         'no_price': 'Cent',
         'sell_position_floor': 'int',
         'side': 'str',
+        'ticker': 'str',
         'type': 'str',
         'yes_price': 'Cent'
     }
@@ -47,25 +47,25 @@ class CreateOrderRequest(object):
         'client_order_id': 'client_order_id',
         'count': 'count',
         'expiration_ts': 'expiration_ts',
-        'market_ticker': 'market_ticker',
         'no_price': 'no_price',
         'sell_position_floor': 'sell_position_floor',
         'side': 'side',
+        'ticker': 'ticker',
         'type': 'type',
         'yes_price': 'yes_price'
     }
 
-    def __init__(self, action=None, buy_max_cost=None, client_order_id=None, count=None, expiration_ts=None, market_ticker=None, no_price=None, sell_position_floor=None, side=None, type=None, yes_price=None):  # noqa: E501
+    def __init__(self, action=None, buy_max_cost=None, client_order_id=None, count=None, expiration_ts=None, no_price=None, sell_position_floor=None, side=None, ticker=None, type=None, yes_price=None):  # noqa: E501
         """CreateOrderRequest - a model defined in Swagger"""  # noqa: E501
         self._action = None
         self._buy_max_cost = None
         self._client_order_id = None
         self._count = None
         self._expiration_ts = None
-        self._market_ticker = None
         self._no_price = None
         self._sell_position_floor = None
         self._side = None
+        self._ticker = None
         self._type = None
         self._yes_price = None
         self.discriminator = None
@@ -76,14 +76,13 @@ class CreateOrderRequest(object):
         self.count = count
         if expiration_ts is not None:
             self.expiration_ts = expiration_ts
-        self.market_ticker = market_ticker
         if no_price is not None:
             self.no_price = no_price
         if sell_position_floor is not None:
             self.sell_position_floor = sell_position_floor
         self.side = side
-        if type is not None:
-            self.type = type
+        self.ticker = ticker
+        self.type = type
         if yes_price is not None:
             self.yes_price = yes_price
 
@@ -207,31 +206,6 @@ class CreateOrderRequest(object):
         self._expiration_ts = expiration_ts
 
     @property
-    def market_ticker(self):
-        """Gets the market_ticker of this CreateOrderRequest.  # noqa: E501
-
-        The ticker of the market the order will be placed in.  # noqa: E501
-
-        :return: The market_ticker of this CreateOrderRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._market_ticker
-
-    @market_ticker.setter
-    def market_ticker(self, market_ticker):
-        """Sets the market_ticker of this CreateOrderRequest.
-
-        The ticker of the market the order will be placed in.  # noqa: E501
-
-        :param market_ticker: The market_ticker of this CreateOrderRequest.  # noqa: E501
-        :type: str
-        """
-        if market_ticker is None:
-            raise ValueError("Invalid value for `market_ticker`, must not be `None`")  # noqa: E501
-
-        self._market_ticker = market_ticker
-
-    @property
     def no_price(self):
         """Gets the no_price of this CreateOrderRequest.  # noqa: E501
 
@@ -256,7 +230,7 @@ class CreateOrderRequest(object):
     def sell_position_floor(self):
         """Gets the sell_position_floor of this CreateOrderRequest.  # noqa: E501
 
-        SellPositionFloor will not let your position flip sides for a market order if set to true.  # noqa: E501
+        SellPositionFloor will not let you flip position for a market order if set to 0.  # noqa: E501
 
         :return: The sell_position_floor of this CreateOrderRequest.  # noqa: E501
         :rtype: int
@@ -267,7 +241,7 @@ class CreateOrderRequest(object):
     def sell_position_floor(self, sell_position_floor):
         """Sets the sell_position_floor of this CreateOrderRequest.
 
-        SellPositionFloor will not let your position flip sides for a market order if set to true.  # noqa: E501
+        SellPositionFloor will not let you flip position for a market order if set to 0.  # noqa: E501
 
         :param sell_position_floor: The sell_position_floor of this CreateOrderRequest.  # noqa: E501
         :type: int
@@ -301,10 +275,35 @@ class CreateOrderRequest(object):
         self._side = side
 
     @property
+    def ticker(self):
+        """Gets the ticker of this CreateOrderRequest.  # noqa: E501
+
+        The ticker of the market the order will be placed in.  # noqa: E501
+
+        :return: The ticker of this CreateOrderRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ticker
+
+    @ticker.setter
+    def ticker(self, ticker):
+        """Sets the ticker of this CreateOrderRequest.
+
+        The ticker of the market the order will be placed in.  # noqa: E501
+
+        :param ticker: The ticker of this CreateOrderRequest.  # noqa: E501
+        :type: str
+        """
+        if ticker is None:
+            raise ValueError("Invalid value for `ticker`, must not be `None`")  # noqa: E501
+
+        self._ticker = ticker
+
+    @property
     def type(self):
         """Gets the type of this CreateOrderRequest.  # noqa: E501
 
-        Specifies if this is a market/quick order or a limit order. Note that either the Yes Price or the No Price must be provided for limit orders.  # noqa: E501
+        Specifies if this is a \"market\" or a \"limit\" order. Note that either the Yes Price or the No Price must be provided for limit orders.  # noqa: E501
 
         :return: The type of this CreateOrderRequest.  # noqa: E501
         :rtype: str
@@ -315,11 +314,13 @@ class CreateOrderRequest(object):
     def type(self, type):
         """Sets the type of this CreateOrderRequest.
 
-        Specifies if this is a market/quick order or a limit order. Note that either the Yes Price or the No Price must be provided for limit orders.  # noqa: E501
+        Specifies if this is a \"market\" or a \"limit\" order. Note that either the Yes Price or the No Price must be provided for limit orders.  # noqa: E501
 
         :param type: The type of this CreateOrderRequest.  # noqa: E501
         :type: str
         """
+        if type is None:
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
