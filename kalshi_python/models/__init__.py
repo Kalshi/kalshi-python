@@ -49,8 +49,10 @@ from kalshi_python.models.login_response import LoginResponse
 from kalshi_python.models.market import Market
 from kalshi_python.models.market_position import MarketPosition
 from kalshi_python.models.market_stats_point import MarketStatsPoint
+from kalshi_python.models.number import Number
 from kalshi_python.models.order import Order
 from kalshi_python.models.order_book import OrderBook
+from kalshi_python.models.order_confirmation import OrderConfirmation
 from kalshi_python.models.order_list import OrderList
 from kalshi_python.models.order_status import OrderStatus
 from kalshi_python.models.order_type import OrderType

@@ -32,6 +32,8 @@ class EventData(object):
         'event_ticker': 'str',
         'mutually_exclusive': 'bool',
         'series_ticker': 'str',
+        'strike_date': 'OutputTime',
+        'strike_period': 'str',
         'sub_title': 'str',
         'title': 'str'
     }
@@ -41,16 +43,20 @@ class EventData(object):
         'event_ticker': 'event_ticker',
         'mutually_exclusive': 'mutually_exclusive',
         'series_ticker': 'series_ticker',
+        'strike_date': 'strike_date',
+        'strike_period': 'strike_period',
         'sub_title': 'sub_title',
         'title': 'title'
     }
 
-    def __init__(self, category=None, event_ticker=None, mutually_exclusive=None, series_ticker=None, sub_title=None, title=None):  # noqa: E501
+    def __init__(self, category=None, event_ticker=None, mutually_exclusive=None, series_ticker=None, strike_date=None, strike_period=None, sub_title=None, title=None):  # noqa: E501
         """EventData - a model defined in Swagger"""  # noqa: E501
         self._category = None
         self._event_ticker = None
         self._mutually_exclusive = None
         self._series_ticker = None
+        self._strike_date = None
+        self._strike_period = None
         self._sub_title = None
         self._title = None
         self.discriminator = None
@@ -58,6 +64,10 @@ class EventData(object):
         self.event_ticker = event_ticker
         self.mutually_exclusive = mutually_exclusive
         self.series_ticker = series_ticker
+        if strike_date is not None:
+            self.strike_date = strike_date
+        if strike_period is not None:
+            self.strike_period = strike_period
         self.sub_title = sub_title
         self.title = title
 
@@ -160,6 +170,50 @@ class EventData(object):
             raise ValueError("Invalid value for `series_ticker`, must not be `None`")  # noqa: E501
 
         self._series_ticker = series_ticker
+
+    @property
+    def strike_date(self):
+        """Gets the strike_date of this EventData.  # noqa: E501
+
+
+        :return: The strike_date of this EventData.  # noqa: E501
+        :rtype: OutputTime
+        """
+        return self._strike_date
+
+    @strike_date.setter
+    def strike_date(self, strike_date):
+        """Sets the strike_date of this EventData.
+
+
+        :param strike_date: The strike_date of this EventData.  # noqa: E501
+        :type: OutputTime
+        """
+
+        self._strike_date = strike_date
+
+    @property
+    def strike_period(self):
+        """Gets the strike_period of this EventData.  # noqa: E501
+
+        The strike period for this event. This will be filled when the event strike is not a date. If it is a date then the 'strike_date' field should be filled instead.  # noqa: E501
+
+        :return: The strike_period of this EventData.  # noqa: E501
+        :rtype: str
+        """
+        return self._strike_period
+
+    @strike_period.setter
+    def strike_period(self, strike_period):
+        """Sets the strike_period of this EventData.
+
+        The strike period for this event. This will be filled when the event strike is not a date. If it is a date then the 'strike_date' field should be filled instead.  # noqa: E501
+
+        :param strike_period: The strike_period of this EventData.  # noqa: E501
+        :type: str
+        """
+
+        self._strike_period = strike_period
 
     @property
     def sub_title(self):

@@ -457,7 +457,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_orders**
-> GetOrdersResponse get_orders(ticker=ticker, event_ticker=event_ticker, min_ts=min_ts, max_ts=max_ts, cursor=cursor, limit=limit)
+> GetOrdersResponse get_orders(ticker=ticker, event_ticker=event_ticker, min_ts=min_ts, max_ts=max_ts, status=status, cursor=cursor, limit=limit)
 
 GetOrders
 
@@ -483,12 +483,13 @@ ticker = 'ticker_example' # str | Restricts the response to orders in a single m
 event_ticker = 'event_ticker_example' # str | Restricts the response to orders in a single event. (optional)
 min_ts = 789 # int | Restricts the response to orders after a timestamp, formatted as a Unix Timestamp. (optional)
 max_ts = 789 # int | Restricts the response to orders before a timestamp, formatted as a Unix Timestamp. (optional)
+status = 'status_example' # str | Restricts the response to orders that have a certain status: resting, canceled, or executed. (optional)
 cursor = 'cursor_example' # str | The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again. (optional)
 limit = 56 # int | Parameter to specify the number of results per page. Defaults to 20. (optional)
 
 try:
     # GetOrders
-    api_response = api_instance.get_orders(ticker=ticker, event_ticker=event_ticker, min_ts=min_ts, max_ts=max_ts, cursor=cursor, limit=limit)
+    api_response = api_instance.get_orders(ticker=ticker, event_ticker=event_ticker, min_ts=min_ts, max_ts=max_ts, status=status, cursor=cursor, limit=limit)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PortfolioApi->get_orders: %s\n" % e)
@@ -502,6 +503,7 @@ Name | Type | Description  | Notes
  **event_ticker** | **str**| Restricts the response to orders in a single event. | [optional] 
  **min_ts** | **int**| Restricts the response to orders after a timestamp, formatted as a Unix Timestamp. | [optional] 
  **max_ts** | **int**| Restricts the response to orders before a timestamp, formatted as a Unix Timestamp. | [optional] 
+ **status** | **str**| Restricts the response to orders that have a certain status: resting, canceled, or executed. | [optional] 
  **cursor** | **str**| The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again. | [optional] 
  **limit** | **int**| Parameter to specify the number of results per page. Defaults to 20. | [optional] 
 

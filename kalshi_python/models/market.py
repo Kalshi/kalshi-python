@@ -29,11 +29,14 @@ class Market(object):
     """
     swagger_types = {
         'can_close_early': 'bool',
+        'cap_strike': 'Number',
         'category': 'str',
         'close_time': 'OutputTime',
+        'custom_strike': 'dict(str, object)',
         'event_ticker': 'str',
         'expiration_time': 'OutputTime',
         'expiration_value': 'str',
+        'floor_strike': 'Number',
         'last_price': 'Cent',
         'liquidity': 'Cent',
         'no_ask': 'Cent',
@@ -46,6 +49,7 @@ class Market(object):
         'result': 'str',
         'risk_limit_cents': 'Cent',
         'status': 'object',
+        'strike_type': 'str',
         'subtitle': 'str',
         'ticker': 'str',
         'volume': 'int',
@@ -56,11 +60,14 @@ class Market(object):
 
     attribute_map = {
         'can_close_early': 'can_close_early',
+        'cap_strike': 'cap_strike',
         'category': 'category',
         'close_time': 'close_time',
+        'custom_strike': 'custom_strike',
         'event_ticker': 'event_ticker',
         'expiration_time': 'expiration_time',
         'expiration_value': 'expiration_value',
+        'floor_strike': 'floor_strike',
         'last_price': 'last_price',
         'liquidity': 'liquidity',
         'no_ask': 'no_ask',
@@ -73,6 +80,7 @@ class Market(object):
         'result': 'result',
         'risk_limit_cents': 'risk_limit_cents',
         'status': 'status',
+        'strike_type': 'strike_type',
         'subtitle': 'subtitle',
         'ticker': 'ticker',
         'volume': 'volume',
@@ -81,14 +89,17 @@ class Market(object):
         'yes_bid': 'yes_bid'
     }
 
-    def __init__(self, can_close_early=None, category=None, close_time=None, event_ticker=None, expiration_time=None, expiration_value=None, last_price=None, liquidity=None, no_ask=None, no_bid=None, open_interest=None, open_time=None, previous_price=None, previous_yes_ask=None, previous_yes_bid=None, result=None, risk_limit_cents=None, status=None, subtitle=None, ticker=None, volume=None, volume_24h=None, yes_ask=None, yes_bid=None):  # noqa: E501
+    def __init__(self, can_close_early=None, cap_strike=None, category=None, close_time=None, custom_strike=None, event_ticker=None, expiration_time=None, expiration_value=None, floor_strike=None, last_price=None, liquidity=None, no_ask=None, no_bid=None, open_interest=None, open_time=None, previous_price=None, previous_yes_ask=None, previous_yes_bid=None, result=None, risk_limit_cents=None, status=None, strike_type=None, subtitle=None, ticker=None, volume=None, volume_24h=None, yes_ask=None, yes_bid=None):  # noqa: E501
         """Market - a model defined in Swagger"""  # noqa: E501
         self._can_close_early = None
+        self._cap_strike = None
         self._category = None
         self._close_time = None
+        self._custom_strike = None
         self._event_ticker = None
         self._expiration_time = None
         self._expiration_value = None
+        self._floor_strike = None
         self._last_price = None
         self._liquidity = None
         self._no_ask = None
@@ -101,6 +112,7 @@ class Market(object):
         self._result = None
         self._risk_limit_cents = None
         self._status = None
+        self._strike_type = None
         self._subtitle = None
         self._ticker = None
         self._volume = None
@@ -109,11 +121,17 @@ class Market(object):
         self._yes_bid = None
         self.discriminator = None
         self.can_close_early = can_close_early
+        if cap_strike is not None:
+            self.cap_strike = cap_strike
         self.category = category
         self.close_time = close_time
+        if custom_strike is not None:
+            self.custom_strike = custom_strike
         self.event_ticker = event_ticker
         self.expiration_time = expiration_time
         self.expiration_value = expiration_value
+        if floor_strike is not None:
+            self.floor_strike = floor_strike
         self.last_price = last_price
         self.liquidity = liquidity
         self.no_ask = no_ask
@@ -126,6 +144,8 @@ class Market(object):
         self.result = result
         self.risk_limit_cents = risk_limit_cents
         self.status = status
+        if strike_type is not None:
+            self.strike_type = strike_type
         self.subtitle = subtitle
         self.ticker = ticker
         self.volume = volume
@@ -157,6 +177,27 @@ class Market(object):
             raise ValueError("Invalid value for `can_close_early`, must not be `None`")  # noqa: E501
 
         self._can_close_early = can_close_early
+
+    @property
+    def cap_strike(self):
+        """Gets the cap_strike of this Market.  # noqa: E501
+
+
+        :return: The cap_strike of this Market.  # noqa: E501
+        :rtype: Number
+        """
+        return self._cap_strike
+
+    @cap_strike.setter
+    def cap_strike(self, cap_strike):
+        """Sets the cap_strike of this Market.
+
+
+        :param cap_strike: The cap_strike of this Market.  # noqa: E501
+        :type: Number
+        """
+
+        self._cap_strike = cap_strike
 
     @property
     def category(self):
@@ -205,6 +246,29 @@ class Market(object):
             raise ValueError("Invalid value for `close_time`, must not be `None`")  # noqa: E501
 
         self._close_time = close_time
+
+    @property
+    def custom_strike(self):
+        """Gets the custom_strike of this Market.  # noqa: E501
+
+        Expiration value for each target that leads to a YES settlement.  Filled only if \"strike_type\" is \"custom\".  # noqa: E501
+
+        :return: The custom_strike of this Market.  # noqa: E501
+        :rtype: dict(str, object)
+        """
+        return self._custom_strike
+
+    @custom_strike.setter
+    def custom_strike(self, custom_strike):
+        """Sets the custom_strike of this Market.
+
+        Expiration value for each target that leads to a YES settlement.  Filled only if \"strike_type\" is \"custom\".  # noqa: E501
+
+        :param custom_strike: The custom_strike of this Market.  # noqa: E501
+        :type: dict(str, object)
+        """
+
+        self._custom_strike = custom_strike
 
     @property
     def event_ticker(self):
@@ -278,6 +342,27 @@ class Market(object):
             raise ValueError("Invalid value for `expiration_value`, must not be `None`")  # noqa: E501
 
         self._expiration_value = expiration_value
+
+    @property
+    def floor_strike(self):
+        """Gets the floor_strike of this Market.  # noqa: E501
+
+
+        :return: The floor_strike of this Market.  # noqa: E501
+        :rtype: Number
+        """
+        return self._floor_strike
+
+    @floor_strike.setter
+    def floor_strike(self, floor_strike):
+        """Sets the floor_strike of this Market.
+
+
+        :param floor_strike: The floor_strike of this Market.  # noqa: E501
+        :type: Number
+        """
+
+        self._floor_strike = floor_strike
 
     @property
     def last_price(self):
@@ -566,6 +651,35 @@ class Market(object):
             raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
+
+    @property
+    def strike_type(self):
+        """Gets the strike_type of this Market.  # noqa: E501
+
+        Strike type defines how the market strike (expiration value) is defined and evaluated.  greater: It will be a single number. For YES outcome the expiration value should be greater than \"floor_strike\".  greater_or_equal: It will be a single number. For YES outcome the expiration value should be greater than \"floor_strike\".  less: It will be a single number. For YES outcome the expiration value should be less than \"cap_strike\".  less_or_equal: It will be a single number. For YES outcome the expiration value should be less or equal than \"cap_strike\".  between: It will be two numbers. For YES outcome the expiration value should be between inclusive \"floor_strike\" and \"cap_strike\", that means expiration value needs to be greater or equal \"floor_strike\" and less or equal \"cap_strike\".  custom: It will be one or more non-numerical values. For YES outcome the expiration values should be equal to the values in \"custom_strike\".  # noqa: E501
+
+        :return: The strike_type of this Market.  # noqa: E501
+        :rtype: str
+        """
+        return self._strike_type
+
+    @strike_type.setter
+    def strike_type(self, strike_type):
+        """Sets the strike_type of this Market.
+
+        Strike type defines how the market strike (expiration value) is defined and evaluated.  greater: It will be a single number. For YES outcome the expiration value should be greater than \"floor_strike\".  greater_or_equal: It will be a single number. For YES outcome the expiration value should be greater than \"floor_strike\".  less: It will be a single number. For YES outcome the expiration value should be less than \"cap_strike\".  less_or_equal: It will be a single number. For YES outcome the expiration value should be less or equal than \"cap_strike\".  between: It will be two numbers. For YES outcome the expiration value should be between inclusive \"floor_strike\" and \"cap_strike\", that means expiration value needs to be greater or equal \"floor_strike\" and less or equal \"cap_strike\".  custom: It will be one or more non-numerical values. For YES outcome the expiration values should be equal to the values in \"custom_strike\".  # noqa: E501
+
+        :param strike_type: The strike_type of this Market.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["unknown", "greater", "less", "greater_or_equal", "less_or_equal", "between", "custom"]  # noqa: E501
+        if strike_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `strike_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(strike_type, allowed_values)
+            )
+
+        self._strike_type = strike_type
 
     @property
     def subtitle(self):

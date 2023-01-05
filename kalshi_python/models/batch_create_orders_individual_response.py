@@ -29,7 +29,7 @@ class BatchCreateOrdersIndividualResponse(object):
     """
     swagger_types = {
         'error': 'JSONError',
-        'order': 'Order'
+        'order': 'OrderConfirmation'
     }
 
     attribute_map = {
@@ -74,7 +74,7 @@ class BatchCreateOrdersIndividualResponse(object):
 
 
         :return: The order of this BatchCreateOrdersIndividualResponse.  # noqa: E501
-        :rtype: Order
+        :rtype: OrderConfirmation
         """
         return self._order
 
@@ -84,7 +84,7 @@ class BatchCreateOrdersIndividualResponse(object):
 
 
         :param order: The order of this BatchCreateOrdersIndividualResponse.  # noqa: E501
-        :type: Order
+        :type: OrderConfirmation
         """
 
         self._order = order
