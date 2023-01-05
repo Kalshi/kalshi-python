@@ -31,18 +31,20 @@ class ApiInstance(object):
         self.portfolio_api = PortfolioApi(self.api_client)
         self.market_api = MarketApi(self.api_client)
 
+    def set_api_token(self, token):
+        self.api_client.configuration.api_key_prefix['Authorization'] = 'Bearer'
+        self.api_client.configuration.api_key['Authorization'] = token
+
     def auto_login_if_possible(self):
-        if self.api_client.configuration.api_key:
+        if 'Authorization' in self.api_client.configuration.api_key.keys():
             return
 
-        if self.email is not None and self.password is not None:
+        if hasattr(self, 'email') and hasattr(self, 'password'):
             loginResponse = self.login(LoginRequest(
                 email=self.email,
                 password=self.password,
             ))
-            self.api_client.configuration.api_key_prefix['Authorization'] = 'Bearer'
-            self.api_client.configuration.api_key[
-                'Authorization'] = loginResponse.token
+            self.set_api_token(loginResponse.token)
 
     # Proxy exchange methods
     def get_exchange_status(self, **kwargs):
@@ -51,7 +53,6 @@ class ApiInstance(object):
     # Proxy auth methods
     def login(self, body, **kwargs):
         response = self.auth_api.login(body, **kwargs)
-        pprint(response)
         return response
 
     def logout(self, **kwargs):
