@@ -32,12 +32,12 @@ class Fill(object):
         'count': 'int',
         'created_time': 'OutputTime',
         'is_taker': 'bool',
-        'no_price': 'Cent',
+        'no_price': 'int',
         'order_id': 'str',
         'side': 'str',
         'ticker': 'str',
         'trade_id': 'str',
-        'yes_price': 'Cent'
+        'yes_price': 'int'
     }
 
     attribute_map = {
@@ -185,9 +185,10 @@ class Fill(object):
     def no_price(self):
         """Gets the no_price of this Fill.  # noqa: E501
 
+        Fill price for the no side in cents.  # noqa: E501
 
         :return: The no_price of this Fill.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._no_price
 
@@ -195,9 +196,10 @@ class Fill(object):
     def no_price(self, no_price):
         """Sets the no_price of this Fill.
 
+        Fill price for the no side in cents.  # noqa: E501
 
         :param no_price: The no_price of this Fill.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if no_price is None:
             raise ValueError("Invalid value for `no_price`, must not be `None`")  # noqa: E501
@@ -251,7 +253,7 @@ class Fill(object):
         """
         if side is None:
             raise ValueError("Invalid value for `side`, must not be `None`")  # noqa: E501
-        allowed_values = ["yes", "no", "invalid", ""]  # noqa: E501
+        allowed_values = ["yes", "no", ""]  # noqa: E501
         if side not in allowed_values:
             raise ValueError(
                 "Invalid value for `side` ({0}), must be one of {1}"  # noqa: E501
@@ -314,9 +316,10 @@ class Fill(object):
     def yes_price(self):
         """Gets the yes_price of this Fill.  # noqa: E501
 
+        Fill price for the yes side in cents.  # noqa: E501
 
         :return: The yes_price of this Fill.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._yes_price
 
@@ -324,9 +327,10 @@ class Fill(object):
     def yes_price(self, yes_price):
         """Sets the yes_price of this Fill.
 
+        Fill price for the yes side in cents.  # noqa: E501
 
         :param yes_price: The yes_price of this Fill.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if yes_price is None:
             raise ValueError("Invalid value for `yes_price`, must not be `None`")  # noqa: E501

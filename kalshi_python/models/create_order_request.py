@@ -29,16 +29,16 @@ class CreateOrderRequest(object):
     """
     swagger_types = {
         'action': 'str',
-        'buy_max_cost': 'Cent',
+        'buy_max_cost': 'int',
         'client_order_id': 'str',
         'count': 'int',
         'expiration_ts': 'int',
-        'no_price': 'Cent',
+        'no_price': 'int',
         'sell_position_floor': 'int',
         'side': 'str',
         'ticker': 'str',
         'type': 'str',
-        'yes_price': 'Cent'
+        'yes_price': 'int'
     }
 
     attribute_map = {
@@ -115,9 +115,10 @@ class CreateOrderRequest(object):
     def buy_max_cost(self):
         """Gets the buy_max_cost of this CreateOrderRequest.  # noqa: E501
 
+        If type = market and action = buy, buy_max_cost represents the maximum cents that can be spent to acquire a position.  # noqa: E501
 
         :return: The buy_max_cost of this CreateOrderRequest.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._buy_max_cost
 
@@ -125,9 +126,10 @@ class CreateOrderRequest(object):
     def buy_max_cost(self, buy_max_cost):
         """Sets the buy_max_cost of this CreateOrderRequest.
 
+        If type = market and action = buy, buy_max_cost represents the maximum cents that can be spent to acquire a position.  # noqa: E501
 
         :param buy_max_cost: The buy_max_cost of this CreateOrderRequest.  # noqa: E501
-        :type: Cent
+        :type: int
         """
 
         self._buy_max_cost = buy_max_cost
@@ -209,9 +211,10 @@ class CreateOrderRequest(object):
     def no_price(self):
         """Gets the no_price of this CreateOrderRequest.  # noqa: E501
 
+        Submitting price of the No side of the trade, in cents. Exactly one of yes_price and no_price must be passed. If both prices are passed, return 400.  # noqa: E501
 
         :return: The no_price of this CreateOrderRequest.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._no_price
 
@@ -219,9 +222,10 @@ class CreateOrderRequest(object):
     def no_price(self, no_price):
         """Sets the no_price of this CreateOrderRequest.
 
+        Submitting price of the No side of the trade, in cents. Exactly one of yes_price and no_price must be passed. If both prices are passed, return 400.  # noqa: E501
 
         :param no_price: The no_price of this CreateOrderRequest.  # noqa: E501
-        :type: Cent
+        :type: int
         """
 
         self._no_price = no_price
@@ -328,9 +332,10 @@ class CreateOrderRequest(object):
     def yes_price(self):
         """Gets the yes_price of this CreateOrderRequest.  # noqa: E501
 
+        Submitting price of the Yes side of the trade, in cents. Exactly one of yes_price and no_price must be passed. If both prices are passed, return 400.  # noqa: E501
 
         :return: The yes_price of this CreateOrderRequest.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._yes_price
 
@@ -338,9 +343,10 @@ class CreateOrderRequest(object):
     def yes_price(self, yes_price):
         """Sets the yes_price of this CreateOrderRequest.
 
+        Submitting price of the Yes side of the trade, in cents. Exactly one of yes_price and no_price must be passed. If both prices are passed, return 400.  # noqa: E501
 
         :param yes_price: The yes_price of this CreateOrderRequest.  # noqa: E501
-        :type: Cent
+        :type: int
         """
 
         self._yes_price = yes_price

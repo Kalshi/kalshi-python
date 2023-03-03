@@ -28,12 +28,12 @@ class EventPosition(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'event_exposure': 'Cent',
+        'event_exposure': 'int',
         'event_ticker': 'str',
-        'fees_paid': 'Cent',
-        'realized_pnl': 'Cent',
+        'fees_paid': 'int',
+        'realized_pnl': 'int',
         'resting_order_count': 'int',
-        'total_cost': 'Cent'
+        'total_cost': 'int'
     }
 
     attribute_map = {
@@ -65,9 +65,10 @@ class EventPosition(object):
     def event_exposure(self):
         """Gets the event_exposure of this EventPosition.  # noqa: E501
 
+        Cost of the aggregate event position in cents.  # noqa: E501
 
         :return: The event_exposure of this EventPosition.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._event_exposure
 
@@ -75,9 +76,10 @@ class EventPosition(object):
     def event_exposure(self, event_exposure):
         """Sets the event_exposure of this EventPosition.
 
+        Cost of the aggregate event position in cents.  # noqa: E501
 
         :param event_exposure: The event_exposure of this EventPosition.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if event_exposure is None:
             raise ValueError("Invalid value for `event_exposure`, must not be `None`")  # noqa: E501
@@ -113,9 +115,10 @@ class EventPosition(object):
     def fees_paid(self):
         """Gets the fees_paid of this EventPosition.  # noqa: E501
 
+        Fees paid on fill orders, in cents.  # noqa: E501
 
         :return: The fees_paid of this EventPosition.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._fees_paid
 
@@ -123,9 +126,10 @@ class EventPosition(object):
     def fees_paid(self, fees_paid):
         """Sets the fees_paid of this EventPosition.
 
+        Fees paid on fill orders, in cents.  # noqa: E501
 
         :param fees_paid: The fees_paid of this EventPosition.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if fees_paid is None:
             raise ValueError("Invalid value for `fees_paid`, must not be `None`")  # noqa: E501
@@ -136,9 +140,10 @@ class EventPosition(object):
     def realized_pnl(self):
         """Gets the realized_pnl of this EventPosition.  # noqa: E501
 
+        Locked in profit and loss, in cents.  # noqa: E501
 
         :return: The realized_pnl of this EventPosition.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._realized_pnl
 
@@ -146,9 +151,10 @@ class EventPosition(object):
     def realized_pnl(self, realized_pnl):
         """Sets the realized_pnl of this EventPosition.
 
+        Locked in profit and loss, in cents.  # noqa: E501
 
         :param realized_pnl: The realized_pnl of this EventPosition.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if realized_pnl is None:
             raise ValueError("Invalid value for `realized_pnl`, must not be `None`")  # noqa: E501
@@ -184,9 +190,10 @@ class EventPosition(object):
     def total_cost(self):
         """Gets the total_cost of this EventPosition.  # noqa: E501
 
+        Total spent on this event in cents.  # noqa: E501
 
         :return: The total_cost of this EventPosition.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._total_cost
 
@@ -194,9 +201,10 @@ class EventPosition(object):
     def total_cost(self, total_cost):
         """Sets the total_cost of this EventPosition.
 
+        Total spent on this event in cents.  # noqa: E501
 
         :param total_cost: The total_cost of this EventPosition.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if total_cost is None:
             raise ValueError("Invalid value for `total_cost`, must not be `None`")  # noqa: E501

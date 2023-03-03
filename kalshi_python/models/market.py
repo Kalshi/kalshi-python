@@ -37,25 +37,26 @@ class Market(object):
         'expiration_time': 'OutputTime',
         'expiration_value': 'str',
         'floor_strike': 'Number',
-        'last_price': 'Cent',
-        'liquidity': 'Cent',
-        'no_ask': 'Cent',
-        'no_bid': 'Cent',
+        'last_price': 'int',
+        'liquidity': 'int',
+        'no_ask': 'int',
+        'no_bid': 'int',
         'open_interest': 'int',
         'open_time': 'OutputTime',
-        'previous_price': 'Cent',
-        'previous_yes_ask': 'Cent',
-        'previous_yes_bid': 'Cent',
+        'previous_price': 'int',
+        'previous_yes_ask': 'int',
+        'previous_yes_bid': 'int',
         'result': 'str',
-        'risk_limit_cents': 'Cent',
+        'risk_limit_cents': 'int',
         'status': 'object',
         'strike_type': 'str',
         'subtitle': 'str',
         'ticker': 'str',
+        'title': 'str',
         'volume': 'int',
         'volume_24h': 'int',
-        'yes_ask': 'Cent',
-        'yes_bid': 'Cent'
+        'yes_ask': 'int',
+        'yes_bid': 'int'
     }
 
     attribute_map = {
@@ -83,13 +84,14 @@ class Market(object):
         'strike_type': 'strike_type',
         'subtitle': 'subtitle',
         'ticker': 'ticker',
+        'title': 'title',
         'volume': 'volume',
         'volume_24h': 'volume_24h',
         'yes_ask': 'yes_ask',
         'yes_bid': 'yes_bid'
     }
 
-    def __init__(self, can_close_early=None, cap_strike=None, category=None, close_time=None, custom_strike=None, event_ticker=None, expiration_time=None, expiration_value=None, floor_strike=None, last_price=None, liquidity=None, no_ask=None, no_bid=None, open_interest=None, open_time=None, previous_price=None, previous_yes_ask=None, previous_yes_bid=None, result=None, risk_limit_cents=None, status=None, strike_type=None, subtitle=None, ticker=None, volume=None, volume_24h=None, yes_ask=None, yes_bid=None):  # noqa: E501
+    def __init__(self, can_close_early=None, cap_strike=None, category=None, close_time=None, custom_strike=None, event_ticker=None, expiration_time=None, expiration_value=None, floor_strike=None, last_price=None, liquidity=None, no_ask=None, no_bid=None, open_interest=None, open_time=None, previous_price=None, previous_yes_ask=None, previous_yes_bid=None, result=None, risk_limit_cents=None, status=None, strike_type=None, subtitle=None, ticker=None, title=None, volume=None, volume_24h=None, yes_ask=None, yes_bid=None):  # noqa: E501
         """Market - a model defined in Swagger"""  # noqa: E501
         self._can_close_early = None
         self._cap_strike = None
@@ -115,6 +117,7 @@ class Market(object):
         self._strike_type = None
         self._subtitle = None
         self._ticker = None
+        self._title = None
         self._volume = None
         self._volume_24h = None
         self._yes_ask = None
@@ -148,6 +151,7 @@ class Market(object):
             self.strike_type = strike_type
         self.subtitle = subtitle
         self.ticker = ticker
+        self.title = title
         self.volume = volume
         self.volume_24h = volume_24h
         self.yes_ask = yes_ask
@@ -368,9 +372,10 @@ class Market(object):
     def last_price(self):
         """Gets the last_price of this Market.  # noqa: E501
 
+        Price for the last traded yes contract on this market.  # noqa: E501
 
         :return: The last_price of this Market.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._last_price
 
@@ -378,9 +383,10 @@ class Market(object):
     def last_price(self, last_price):
         """Sets the last_price of this Market.
 
+        Price for the last traded yes contract on this market.  # noqa: E501
 
         :param last_price: The last_price of this Market.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if last_price is None:
             raise ValueError("Invalid value for `last_price`, must not be `None`")  # noqa: E501
@@ -391,9 +397,10 @@ class Market(object):
     def liquidity(self):
         """Gets the liquidity of this Market.  # noqa: E501
 
+        Value for current offers in this market in cents.  # noqa: E501
 
         :return: The liquidity of this Market.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._liquidity
 
@@ -401,9 +408,10 @@ class Market(object):
     def liquidity(self, liquidity):
         """Sets the liquidity of this Market.
 
+        Value for current offers in this market in cents.  # noqa: E501
 
         :param liquidity: The liquidity of this Market.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if liquidity is None:
             raise ValueError("Invalid value for `liquidity`, must not be `None`")  # noqa: E501
@@ -414,9 +422,10 @@ class Market(object):
     def no_ask(self):
         """Gets the no_ask of this Market.  # noqa: E501
 
+        Price for the lowest NO sell offer on this market.  # noqa: E501
 
         :return: The no_ask of this Market.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._no_ask
 
@@ -424,9 +433,10 @@ class Market(object):
     def no_ask(self, no_ask):
         """Sets the no_ask of this Market.
 
+        Price for the lowest NO sell offer on this market.  # noqa: E501
 
         :param no_ask: The no_ask of this Market.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if no_ask is None:
             raise ValueError("Invalid value for `no_ask`, must not be `None`")  # noqa: E501
@@ -437,9 +447,10 @@ class Market(object):
     def no_bid(self):
         """Gets the no_bid of this Market.  # noqa: E501
 
+        Price for the highest NO buy offer on this market.  # noqa: E501
 
         :return: The no_bid of this Market.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._no_bid
 
@@ -447,9 +458,10 @@ class Market(object):
     def no_bid(self, no_bid):
         """Sets the no_bid of this Market.
 
+        Price for the highest NO buy offer on this market.  # noqa: E501
 
         :param no_bid: The no_bid of this Market.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if no_bid is None:
             raise ValueError("Invalid value for `no_bid`, must not be `None`")  # noqa: E501
@@ -508,9 +520,10 @@ class Market(object):
     def previous_price(self):
         """Gets the previous_price of this Market.  # noqa: E501
 
+        Price for the last traded yes contract on this market a day ago.  # noqa: E501
 
         :return: The previous_price of this Market.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._previous_price
 
@@ -518,9 +531,10 @@ class Market(object):
     def previous_price(self, previous_price):
         """Sets the previous_price of this Market.
 
+        Price for the last traded yes contract on this market a day ago.  # noqa: E501
 
         :param previous_price: The previous_price of this Market.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if previous_price is None:
             raise ValueError("Invalid value for `previous_price`, must not be `None`")  # noqa: E501
@@ -531,9 +545,10 @@ class Market(object):
     def previous_yes_ask(self):
         """Gets the previous_yes_ask of this Market.  # noqa: E501
 
+        Price for the lowest YES sell offer on this market a day ago.  # noqa: E501
 
         :return: The previous_yes_ask of this Market.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._previous_yes_ask
 
@@ -541,9 +556,10 @@ class Market(object):
     def previous_yes_ask(self, previous_yes_ask):
         """Sets the previous_yes_ask of this Market.
 
+        Price for the lowest YES sell offer on this market a day ago.  # noqa: E501
 
         :param previous_yes_ask: The previous_yes_ask of this Market.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if previous_yes_ask is None:
             raise ValueError("Invalid value for `previous_yes_ask`, must not be `None`")  # noqa: E501
@@ -554,9 +570,10 @@ class Market(object):
     def previous_yes_bid(self):
         """Gets the previous_yes_bid of this Market.  # noqa: E501
 
+        Price for the highest YES buy offer on this market a day ago.  # noqa: E501
 
         :return: The previous_yes_bid of this Market.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._previous_yes_bid
 
@@ -564,9 +581,10 @@ class Market(object):
     def previous_yes_bid(self, previous_yes_bid):
         """Sets the previous_yes_bid of this Market.
 
+        Price for the highest YES buy offer on this market a day ago.  # noqa: E501
 
         :param previous_yes_bid: The previous_yes_bid of this Market.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if previous_yes_bid is None:
             raise ValueError("Invalid value for `previous_yes_bid`, must not be `None`")  # noqa: E501
@@ -595,7 +613,7 @@ class Market(object):
         """
         if result is None:
             raise ValueError("Invalid value for `result`, must not be `None`")  # noqa: E501
-        allowed_values = ["", "yes", "no", "void", "invalid", "all_no", "all_yes"]  # noqa: E501
+        allowed_values = ["", "yes", "no", "void", "all_no", "all_yes"]  # noqa: E501
         if result not in allowed_values:
             raise ValueError(
                 "Invalid value for `result` ({0}), must be one of {1}"  # noqa: E501
@@ -608,9 +626,10 @@ class Market(object):
     def risk_limit_cents(self):
         """Gets the risk_limit_cents of this Market.  # noqa: E501
 
+        Risk limit for this market in cents.  # noqa: E501
 
         :return: The risk_limit_cents of this Market.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._risk_limit_cents
 
@@ -618,9 +637,10 @@ class Market(object):
     def risk_limit_cents(self, risk_limit_cents):
         """Sets the risk_limit_cents of this Market.
 
+        Risk limit for this market in cents.  # noqa: E501
 
         :param risk_limit_cents: The risk_limit_cents of this Market.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if risk_limit_cents is None:
             raise ValueError("Invalid value for `risk_limit_cents`, must not be `None`")  # noqa: E501
@@ -656,7 +676,7 @@ class Market(object):
     def strike_type(self):
         """Gets the strike_type of this Market.  # noqa: E501
 
-        Strike type defines how the market strike (expiration value) is defined and evaluated.  greater: It will be a single number. For YES outcome the expiration value should be greater than \"floor_strike\".  greater_or_equal: It will be a single number. For YES outcome the expiration value should be greater than \"floor_strike\".  less: It will be a single number. For YES outcome the expiration value should be less than \"cap_strike\".  less_or_equal: It will be a single number. For YES outcome the expiration value should be less or equal than \"cap_strike\".  between: It will be two numbers. For YES outcome the expiration value should be between inclusive \"floor_strike\" and \"cap_strike\", that means expiration value needs to be greater or equal \"floor_strike\" and less or equal \"cap_strike\".  custom: It will be one or more non-numerical values. For YES outcome the expiration values should be equal to the values in \"custom_strike\".  # noqa: E501
+        Strike type defines how the market strike (expiration value) is defined and evaluated.  greater: It will be a single number. For YES outcome the expiration value should be greater than \"floor_strike\".  greater_or_equal: It will be a single number. For YES outcome the expiration value should be greater OR EQUAL than \"floor_strike\".  less: It will be a single number. For YES outcome the expiration value should be less than \"cap_strike\".  less_or_equal: It will be a single number. For YES outcome the expiration value should be less OR EQUAL than \"cap_strike\".  between: It will be two numbers. For YES outcome the expiration value should be between inclusive \"floor_strike\" and \"cap_strike\", that means expiration value needs to be greater or equal \"floor_strike\" and less or equal \"cap_strike\".  custom: It will be one or more non-numerical values. For YES outcome the expiration values should be equal to the values in \"custom_strike\".  # noqa: E501
 
         :return: The strike_type of this Market.  # noqa: E501
         :rtype: str
@@ -667,7 +687,7 @@ class Market(object):
     def strike_type(self, strike_type):
         """Sets the strike_type of this Market.
 
-        Strike type defines how the market strike (expiration value) is defined and evaluated.  greater: It will be a single number. For YES outcome the expiration value should be greater than \"floor_strike\".  greater_or_equal: It will be a single number. For YES outcome the expiration value should be greater than \"floor_strike\".  less: It will be a single number. For YES outcome the expiration value should be less than \"cap_strike\".  less_or_equal: It will be a single number. For YES outcome the expiration value should be less or equal than \"cap_strike\".  between: It will be two numbers. For YES outcome the expiration value should be between inclusive \"floor_strike\" and \"cap_strike\", that means expiration value needs to be greater or equal \"floor_strike\" and less or equal \"cap_strike\".  custom: It will be one or more non-numerical values. For YES outcome the expiration values should be equal to the values in \"custom_strike\".  # noqa: E501
+        Strike type defines how the market strike (expiration value) is defined and evaluated.  greater: It will be a single number. For YES outcome the expiration value should be greater than \"floor_strike\".  greater_or_equal: It will be a single number. For YES outcome the expiration value should be greater OR EQUAL than \"floor_strike\".  less: It will be a single number. For YES outcome the expiration value should be less than \"cap_strike\".  less_or_equal: It will be a single number. For YES outcome the expiration value should be less OR EQUAL than \"cap_strike\".  between: It will be two numbers. For YES outcome the expiration value should be between inclusive \"floor_strike\" and \"cap_strike\", that means expiration value needs to be greater or equal \"floor_strike\" and less or equal \"cap_strike\".  custom: It will be one or more non-numerical values. For YES outcome the expiration values should be equal to the values in \"custom_strike\".  # noqa: E501
 
         :param strike_type: The strike_type of this Market.  # noqa: E501
         :type: str
@@ -732,6 +752,31 @@ class Market(object):
         self._ticker = ticker
 
     @property
+    def title(self):
+        """Gets the title of this Market.  # noqa: E501
+
+        Full title describing this market.  # noqa: E501
+
+        :return: The title of this Market.  # noqa: E501
+        :rtype: str
+        """
+        return self._title
+
+    @title.setter
+    def title(self, title):
+        """Sets the title of this Market.
+
+        Full title describing this market.  # noqa: E501
+
+        :param title: The title of this Market.  # noqa: E501
+        :type: str
+        """
+        if title is None:
+            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
+
+        self._title = title
+
+    @property
     def volume(self):
         """Gets the volume of this Market.  # noqa: E501
 
@@ -785,9 +830,10 @@ class Market(object):
     def yes_ask(self):
         """Gets the yes_ask of this Market.  # noqa: E501
 
+        Price for the lowest YES sell offer on this market.  # noqa: E501
 
         :return: The yes_ask of this Market.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._yes_ask
 
@@ -795,9 +841,10 @@ class Market(object):
     def yes_ask(self, yes_ask):
         """Sets the yes_ask of this Market.
 
+        Price for the lowest YES sell offer on this market.  # noqa: E501
 
         :param yes_ask: The yes_ask of this Market.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if yes_ask is None:
             raise ValueError("Invalid value for `yes_ask`, must not be `None`")  # noqa: E501
@@ -808,9 +855,10 @@ class Market(object):
     def yes_bid(self):
         """Gets the yes_bid of this Market.  # noqa: E501
 
+        Price for the highest YES buy offer on this market.  # noqa: E501
 
         :return: The yes_bid of this Market.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._yes_bid
 
@@ -818,9 +866,10 @@ class Market(object):
     def yes_bid(self, yes_bid):
         """Sets the yes_bid of this Market.
 
+        Price for the highest YES buy offer on this market.  # noqa: E501
 
         :param yes_bid: The yes_bid of this Market.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if yes_bid is None:
             raise ValueError("Invalid value for `yes_bid`, must not be `None`")  # noqa: E501

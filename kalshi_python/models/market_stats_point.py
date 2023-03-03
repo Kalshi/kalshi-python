@@ -28,14 +28,14 @@ class MarketStatsPoint(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'no_ask': 'Cent',
-        'no_bid': 'Cent',
+        'no_ask': 'int',
+        'no_bid': 'int',
         'open_interest': 'int',
         'ts': 'int',
         'volume': 'int',
-        'yes_ask': 'Cent',
-        'yes_bid': 'Cent',
-        'yes_price': 'Cent'
+        'yes_ask': 'int',
+        'yes_bid': 'int',
+        'yes_price': 'int'
     }
 
     attribute_map = {
@@ -73,9 +73,10 @@ class MarketStatsPoint(object):
     def no_ask(self):
         """Gets the no_ask of this MarketStatsPoint.  # noqa: E501
 
+        Price for the lowest NO sell offer on the market by the timestamp in the request (ts).  # noqa: E501
 
         :return: The no_ask of this MarketStatsPoint.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._no_ask
 
@@ -83,9 +84,10 @@ class MarketStatsPoint(object):
     def no_ask(self, no_ask):
         """Sets the no_ask of this MarketStatsPoint.
 
+        Price for the lowest NO sell offer on the market by the timestamp in the request (ts).  # noqa: E501
 
         :param no_ask: The no_ask of this MarketStatsPoint.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if no_ask is None:
             raise ValueError("Invalid value for `no_ask`, must not be `None`")  # noqa: E501
@@ -96,9 +98,10 @@ class MarketStatsPoint(object):
     def no_bid(self):
         """Gets the no_bid of this MarketStatsPoint.  # noqa: E501
 
+        Price for the highest NO buy offer on the market by the timestamp in the request (ts).  # noqa: E501
 
         :return: The no_bid of this MarketStatsPoint.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._no_bid
 
@@ -106,9 +109,10 @@ class MarketStatsPoint(object):
     def no_bid(self, no_bid):
         """Sets the no_bid of this MarketStatsPoint.
 
+        Price for the highest NO buy offer on the market by the timestamp in the request (ts).  # noqa: E501
 
         :param no_bid: The no_bid of this MarketStatsPoint.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if no_bid is None:
             raise ValueError("Invalid value for `no_bid`, must not be `None`")  # noqa: E501
@@ -194,9 +198,10 @@ class MarketStatsPoint(object):
     def yes_ask(self):
         """Gets the yes_ask of this MarketStatsPoint.  # noqa: E501
 
+        Price for the lowest YES sell offer on the market by the timestamp in the request (ts).  # noqa: E501
 
         :return: The yes_ask of this MarketStatsPoint.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._yes_ask
 
@@ -204,9 +209,10 @@ class MarketStatsPoint(object):
     def yes_ask(self, yes_ask):
         """Sets the yes_ask of this MarketStatsPoint.
 
+        Price for the lowest YES sell offer on the market by the timestamp in the request (ts).  # noqa: E501
 
         :param yes_ask: The yes_ask of this MarketStatsPoint.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if yes_ask is None:
             raise ValueError("Invalid value for `yes_ask`, must not be `None`")  # noqa: E501
@@ -217,9 +223,10 @@ class MarketStatsPoint(object):
     def yes_bid(self):
         """Gets the yes_bid of this MarketStatsPoint.  # noqa: E501
 
+        Price for the highest YES buy offer on the market by the timestamp in the request (ts).  # noqa: E501
 
         :return: The yes_bid of this MarketStatsPoint.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._yes_bid
 
@@ -227,9 +234,10 @@ class MarketStatsPoint(object):
     def yes_bid(self, yes_bid):
         """Sets the yes_bid of this MarketStatsPoint.
 
+        Price for the highest YES buy offer on the market by the timestamp in the request (ts).  # noqa: E501
 
         :param yes_bid: The yes_bid of this MarketStatsPoint.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if yes_bid is None:
             raise ValueError("Invalid value for `yes_bid`, must not be `None`")  # noqa: E501
@@ -240,9 +248,10 @@ class MarketStatsPoint(object):
     def yes_price(self):
         """Gets the yes_price of this MarketStatsPoint.  # noqa: E501
 
+        Price for the last traded yes contract on the market by the timestamp in the request (ts).  # noqa: E501
 
         :return: The yes_price of this MarketStatsPoint.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._yes_price
 
@@ -250,9 +259,10 @@ class MarketStatsPoint(object):
     def yes_price(self, yes_price):
         """Sets the yes_price of this MarketStatsPoint.
 
+        Price for the last traded yes contract on the market by the timestamp in the request (ts).  # noqa: E501
 
         :param yes_price: The yes_price of this MarketStatsPoint.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if yes_price is None:
             raise ValueError("Invalid value for `yes_price`, must not be `None`")  # noqa: E501

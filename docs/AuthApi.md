@@ -1,4 +1,4 @@
-# swagger_client.AuthApi
+# kalshi_python.AuthApi
 
 All URIs are relative to *https://trading-api.kalshi.com/trade-api/v2*
 
@@ -18,13 +18,13 @@ Endpoint to start a REST session with the Kalshi API.
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import kalshi_python
+from kalshi_python.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.AuthApi()
-body = swagger_client.LoginRequest() # LoginRequest | Login input data
+api_instance = kalshi_python.AuthApi()
+body = kalshi_python.LoginRequest() # LoginRequest | Login input data
 
 try:
     # Login
@@ -66,18 +66,18 @@ Terminate your session with Kalshi. After this endpoint is called, the session t
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import kalshi_python
+from kalshi_python.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: bearer_token
-configuration = swagger_client.Configuration()
+configuration = kalshi_python.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.AuthApi(swagger_client.ApiClient(configuration))
+api_instance = kalshi_python.AuthApi(kalshi_python.ApiClient(configuration))
 
 try:
     # Logout

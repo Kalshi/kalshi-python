@@ -37,20 +37,20 @@ class Order(object):
         'fcc_cancel_count': 'int',
         'last_update_time': 'OutputTime',
         'maker_fill_count': 'int',
-        'no_price': 'Cent',
+        'no_price': 'int',
         'order_id': 'str',
         'place_count': 'int',
         'queue_position': 'int',
         'remaining_count': 'int',
         'side': 'str',
-        'status': 'OrderStatus',
-        'taker_fees': 'Cent',
-        'taker_fill_cost': 'Cent',
+        'status': 'str',
+        'taker_fees': 'int',
+        'taker_fill_cost': 'int',
         'taker_fill_count': 'int',
         'ticker': 'str',
-        'type': 'OrderType',
+        'type': 'str',
         'user_id': 'str',
-        'yes_price': 'Cent'
+        'yes_price': 'int'
     }
 
     attribute_map = {
@@ -122,8 +122,7 @@ class Order(object):
         if maker_fill_count is not None:
             self.maker_fill_count = maker_fill_count
         self.no_price = no_price
-        if order_id is not None:
-            self.order_id = order_id
+        self.order_id = order_id
         if place_count is not None:
             self.place_count = place_count
         if queue_position is not None:
@@ -359,9 +358,10 @@ class Order(object):
     def no_price(self):
         """Gets the no_price of this Order.  # noqa: E501
 
+        Submitting price of the No side of the trade, in cents. Exactly one of yes_price and no_price must be passed. If both prices are passed, return 400.  # noqa: E501
 
         :return: The no_price of this Order.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._no_price
 
@@ -369,9 +369,10 @@ class Order(object):
     def no_price(self, no_price):
         """Sets the no_price of this Order.
 
+        Submitting price of the No side of the trade, in cents. Exactly one of yes_price and no_price must be passed. If both prices are passed, return 400.  # noqa: E501
 
         :param no_price: The no_price of this Order.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if no_price is None:
             raise ValueError("Invalid value for `no_price`, must not be `None`")  # noqa: E501
@@ -382,6 +383,7 @@ class Order(object):
     def order_id(self):
         """Gets the order_id of this Order.  # noqa: E501
 
+        Unique identifier for orders.  # noqa: E501
 
         :return: The order_id of this Order.  # noqa: E501
         :rtype: str
@@ -392,10 +394,13 @@ class Order(object):
     def order_id(self, order_id):
         """Sets the order_id of this Order.
 
+        Unique identifier for orders.  # noqa: E501
 
         :param order_id: The order_id of this Order.  # noqa: E501
         :type: str
         """
+        if order_id is None:
+            raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501
 
         self._order_id = order_id
 
@@ -490,7 +495,7 @@ class Order(object):
         """
         if side is None:
             raise ValueError("Invalid value for `side`, must not be `None`")  # noqa: E501
-        allowed_values = ["yes", "no", "invalid", ""]  # noqa: E501
+        allowed_values = ["yes", "no", ""]  # noqa: E501
         if side not in allowed_values:
             raise ValueError(
                 "Invalid value for `side` ({0}), must be one of {1}"  # noqa: E501
@@ -503,9 +508,10 @@ class Order(object):
     def status(self):
         """Gets the status of this Order.  # noqa: E501
 
+        The current status of this order.  # noqa: E501
 
         :return: The status of this Order.  # noqa: E501
-        :rtype: OrderStatus
+        :rtype: str
         """
         return self._status
 
@@ -513,12 +519,19 @@ class Order(object):
     def status(self, status):
         """Sets the status of this Order.
 
+        The current status of this order.  # noqa: E501
 
         :param status: The status of this Order.  # noqa: E501
-        :type: OrderStatus
+        :type: str
         """
         if status is None:
             raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
+        allowed_values = ["resting", "canceled", "executed", "pending"]  # noqa: E501
+        if status not in allowed_values:
+            raise ValueError(
+                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
+                .format(status, allowed_values)
+            )
 
         self._status = status
 
@@ -526,9 +539,10 @@ class Order(object):
     def taker_fees(self):
         """Gets the taker_fees of this Order.  # noqa: E501
 
+        Fees paid on filled orders, in cents.  # noqa: E501
 
         :return: The taker_fees of this Order.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._taker_fees
 
@@ -536,9 +550,10 @@ class Order(object):
     def taker_fees(self, taker_fees):
         """Sets the taker_fees of this Order.
 
+        Fees paid on filled orders, in cents.  # noqa: E501
 
         :param taker_fees: The taker_fees of this Order.  # noqa: E501
-        :type: Cent
+        :type: int
         """
 
         self._taker_fees = taker_fees
@@ -547,9 +562,10 @@ class Order(object):
     def taker_fill_cost(self):
         """Gets the taker_fill_cost of this Order.  # noqa: E501
 
+        The cost of filled taker orders in cents.  # noqa: E501
 
         :return: The taker_fill_cost of this Order.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._taker_fill_cost
 
@@ -557,9 +573,10 @@ class Order(object):
     def taker_fill_cost(self, taker_fill_cost):
         """Sets the taker_fill_cost of this Order.
 
+        The cost of filled taker orders in cents.  # noqa: E501
 
         :param taker_fill_cost: The taker_fill_cost of this Order.  # noqa: E501
-        :type: Cent
+        :type: int
         """
 
         self._taker_fill_cost = taker_fill_cost
@@ -616,9 +633,10 @@ class Order(object):
     def type(self):
         """Gets the type of this Order.  # noqa: E501
 
+        Representing order type; currently supports \"market\" and \"limit\".  # noqa: E501
 
         :return: The type of this Order.  # noqa: E501
-        :rtype: OrderType
+        :rtype: str
         """
         return self._type
 
@@ -626,12 +644,19 @@ class Order(object):
     def type(self, type):
         """Sets the type of this Order.
 
+        Representing order type; currently supports \"market\" and \"limit\".  # noqa: E501
 
         :param type: The type of this Order.  # noqa: E501
-        :type: OrderType
+        :type: str
         """
         if type is None:
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
+        allowed_values = ["", "market", "limit"]  # noqa: E501
+        if type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
 
         self._type = type
 
@@ -660,9 +685,10 @@ class Order(object):
     def yes_price(self):
         """Gets the yes_price of this Order.  # noqa: E501
 
+        The yes price for this order in cents.  # noqa: E501
 
         :return: The yes_price of this Order.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._yes_price
 
@@ -670,9 +696,10 @@ class Order(object):
     def yes_price(self, yes_price):
         """Sets the yes_price of this Order.
 
+        The yes price for this order in cents.  # noqa: E501
 
         :param yes_price: The yes_price of this Order.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if yes_price is None:
             raise ValueError("Invalid value for `yes_price`, must not be `None`")  # noqa: E501
