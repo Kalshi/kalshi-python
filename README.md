@@ -74,17 +74,35 @@ seriesResponse = kalshi_api.get_series(seriesTicker)
 print('\nSeries: ' + seriesTicker)
 pprint(seriesResponse)
 
+# Gets the events for a specific series.
+seriesTicker = 'FED'
+eventsResponse = kalshi_api.get_events(series_ticker=seriesTicker)
+print('\nEvents for series: ' + seriesTicker)
+pprint(eventsResponse)
+
 # Gets the data for a specific event.
 eventTicker = 'FED-23DEC'
 eventResponse = kalshi_api.get_event(eventTicker)
 print('\nEvent: ' + seriesTicker)
 pprint(eventResponse)
 
-# Replace the series ticker with the market ticker you want.
+# Gets the data for a specific market.
 marketTicker = 'FED-23DEC-T3.00'
 marketResponse = kalshi_api.get_market(marketTicker)
 print('\nMarket: ' + marketTicker)
 pprint(marketResponse)
+
+# Gets the orderbook for a specific market.
+marketTicker = 'FED-23DEC-T3.00'
+orderbookResponse = kalshi_api.get_market_orderbook(marketTicker)
+print('\nOrderbook for market: ' + marketTicker)
+pprint(orderbookResponse)
+
+# Gets the market price history for a specific market.
+marketTicker = 'FED-23DEC-T3.00'
+historyResponse = kalshi_api.get_market_history(marketTicker)
+print('\nMarket price history for market: ' + marketTicker)
+pprint(historyResponse)
 
 # Gets the balance for your kalshi account.
 balanceResponse = kalshi_api.get_balance()
