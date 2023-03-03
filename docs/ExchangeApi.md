@@ -1,4 +1,4 @@
-# swagger_client.ExchangeApi
+# kalshi_python.ExchangeApi
 
 All URIs are relative to *https://trading-api.kalshi.com/trade-api/v2*
 
@@ -17,12 +17,12 @@ Endpoint for getting the exchange status.
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import kalshi_python
+from kalshi_python.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.ExchangeApi()
+api_instance = kalshi_python.ExchangeApi()
 
 try:
     # GetExchangeStatus

@@ -32,14 +32,14 @@ class OrderConfirmation(object):
         'client_order_id': 'str',
         'created_time': 'OutputTime',
         'expiration_time': 'OutputTime',
-        'no_price': 'Cent',
+        'no_price': 'int',
         'order_id': 'str',
         'side': 'str',
-        'status': 'OrderStatus',
+        'status': 'str',
         'ticker': 'str',
-        'type': 'OrderType',
+        'type': 'str',
         'user_id': 'str',
-        'yes_price': 'Cent'
+        'yes_price': 'int'
     }
 
     attribute_map = {
@@ -79,8 +79,7 @@ class OrderConfirmation(object):
         if expiration_time is not None:
             self.expiration_time = expiration_time
         self.no_price = no_price
-        if order_id is not None:
-            self.order_id = order_id
+        self.order_id = order_id
         self.side = side
         self.status = status
         self.ticker = ticker
@@ -191,9 +190,10 @@ class OrderConfirmation(object):
     def no_price(self):
         """Gets the no_price of this OrderConfirmation.  # noqa: E501
 
+        The no price for this order in cents.  # noqa: E501
 
         :return: The no_price of this OrderConfirmation.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._no_price
 
@@ -201,9 +201,10 @@ class OrderConfirmation(object):
     def no_price(self, no_price):
         """Sets the no_price of this OrderConfirmation.
 
+        The no price for this order in cents.  # noqa: E501
 
         :param no_price: The no_price of this OrderConfirmation.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if no_price is None:
             raise ValueError("Invalid value for `no_price`, must not be `None`")  # noqa: E501
@@ -214,6 +215,7 @@ class OrderConfirmation(object):
     def order_id(self):
         """Gets the order_id of this OrderConfirmation.  # noqa: E501
 
+        Unique identifier for orders.  # noqa: E501
 
         :return: The order_id of this OrderConfirmation.  # noqa: E501
         :rtype: str
@@ -224,10 +226,13 @@ class OrderConfirmation(object):
     def order_id(self, order_id):
         """Sets the order_id of this OrderConfirmation.
 
+        Unique identifier for orders.  # noqa: E501
 
         :param order_id: The order_id of this OrderConfirmation.  # noqa: E501
         :type: str
         """
+        if order_id is None:
+            raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501
 
         self._order_id = order_id
 
@@ -253,7 +258,7 @@ class OrderConfirmation(object):
         """
         if side is None:
             raise ValueError("Invalid value for `side`, must not be `None`")  # noqa: E501
-        allowed_values = ["yes", "no", "invalid", ""]  # noqa: E501
+        allowed_values = ["yes", "no", ""]  # noqa: E501
         if side not in allowed_values:
             raise ValueError(
                 "Invalid value for `side` ({0}), must be one of {1}"  # noqa: E501
@@ -266,9 +271,10 @@ class OrderConfirmation(object):
     def status(self):
         """Gets the status of this OrderConfirmation.  # noqa: E501
 
+        The current status of a given order.  # noqa: E501
 
         :return: The status of this OrderConfirmation.  # noqa: E501
-        :rtype: OrderStatus
+        :rtype: str
         """
         return self._status
 
@@ -276,12 +282,19 @@ class OrderConfirmation(object):
     def status(self, status):
         """Sets the status of this OrderConfirmation.
 
+        The current status of a given order.  # noqa: E501
 
         :param status: The status of this OrderConfirmation.  # noqa: E501
-        :type: OrderStatus
+        :type: str
         """
         if status is None:
             raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
+        allowed_values = ["resting", "canceled", "executed", "pending"]  # noqa: E501
+        if status not in allowed_values:
+            raise ValueError(
+                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
+                .format(status, allowed_values)
+            )
 
         self._status = status
 
@@ -314,9 +327,10 @@ class OrderConfirmation(object):
     def type(self):
         """Gets the type of this OrderConfirmation.  # noqa: E501
 
+        Representing order type; currently supports \"market\" and \"limit\".  # noqa: E501
 
         :return: The type of this OrderConfirmation.  # noqa: E501
-        :rtype: OrderType
+        :rtype: str
         """
         return self._type
 
@@ -324,12 +338,19 @@ class OrderConfirmation(object):
     def type(self, type):
         """Sets the type of this OrderConfirmation.
 
+        Representing order type; currently supports \"market\" and \"limit\".  # noqa: E501
 
         :param type: The type of this OrderConfirmation.  # noqa: E501
-        :type: OrderType
+        :type: str
         """
         if type is None:
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
+        allowed_values = ["", "market", "limit"]  # noqa: E501
+        if type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
 
         self._type = type
 
@@ -358,9 +379,10 @@ class OrderConfirmation(object):
     def yes_price(self):
         """Gets the yes_price of this OrderConfirmation.  # noqa: E501
 
+        The yes price for this order in cents.  # noqa: E501
 
         :return: The yes_price of this OrderConfirmation.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._yes_price
 
@@ -368,9 +390,10 @@ class OrderConfirmation(object):
     def yes_price(self, yes_price):
         """Sets the yes_price of this OrderConfirmation.
 
+        The yes price for this order in cents.  # noqa: E501
 
         :param yes_price: The yes_price of this OrderConfirmation.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if yes_price is None:
             raise ValueError("Invalid value for `yes_price`, must not be `None`")  # noqa: E501

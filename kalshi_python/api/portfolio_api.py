@@ -632,7 +632,7 @@ class PortfolioApi(object):
         :param str order_id: Restricts the response to trades related to a specific order.
         :param int min_ts: Restricts the response to trades after a timestamp.
         :param int max_ts: Restricts the response to trades before a timestamp.
-        :param int limit: Parameter to specify the number of results per page. Defaults to 20.
+        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
         :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again.
         :return: GetFillsResponse
                  If the method is called asynchronously,
@@ -659,7 +659,7 @@ class PortfolioApi(object):
         :param str order_id: Restricts the response to trades related to a specific order.
         :param int min_ts: Restricts the response to trades after a timestamp.
         :param int max_ts: Restricts the response to trades before a timestamp.
-        :param int limit: Parameter to specify the number of results per page. Defaults to 20.
+        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
         :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again.
         :return: GetFillsResponse
                  If the method is called asynchronously,
@@ -840,7 +840,7 @@ class PortfolioApi(object):
         :param int max_ts: Restricts the response to orders before a timestamp, formatted as a Unix Timestamp.
         :param str status: Restricts the response to orders that have a certain status: resting, canceled, or executed.
         :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again.
-        :param int limit: Parameter to specify the number of results per page. Defaults to 20.
+        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
         :return: GetOrdersResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -868,7 +868,7 @@ class PortfolioApi(object):
         :param int max_ts: Restricts the response to orders before a timestamp, formatted as a Unix Timestamp.
         :param str status: Restricts the response to orders that have a certain status: resting, canceled, or executed.
         :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again.
-        :param int limit: Parameter to specify the number of results per page. Defaults to 20.
+        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
         :return: GetOrdersResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -949,7 +949,7 @@ class PortfolioApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int limit: Parameter to specify the number of results per page. Defaults to 20.
+        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
         :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query.
         :return: GetPortfolioSettlementsResponse
                  If the method is called asynchronously,
@@ -972,7 +972,7 @@ class PortfolioApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int limit: Parameter to specify the number of results per page. Defaults to 20.
+        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
         :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query.
         :return: GetPortfolioSettlementsResponse
                  If the method is called asynchronously,
@@ -1045,7 +1045,7 @@ class PortfolioApi(object):
 
         :param async_req bool
         :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like settlement_status, ticker, or event_ticker were passed in the original query they must be passed again.
-        :param int limit: Parameter to specify the number of results per page. Defaults to 20.
+        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
         :param str settlement_status: Settlement status of the markets to return. Defaults to unsettled.
         :param str ticker: Ticker of desired positions.
         :param str event_ticker: Event ticker of desired positions.
@@ -1071,7 +1071,7 @@ class PortfolioApi(object):
 
         :param async_req bool
         :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like settlement_status, ticker, or event_ticker were passed in the original query they must be passed again.
-        :param int limit: Parameter to specify the number of results per page. Defaults to 20.
+        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
         :param str settlement_status: Settlement status of the markets to return. Defaults to unsettled.
         :param str ticker: Ticker of desired positions.
         :param str event_ticker: Event ticker of desired positions.

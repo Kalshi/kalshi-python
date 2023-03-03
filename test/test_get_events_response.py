@@ -14,9 +14,13 @@ from __future__ import absolute_import
 
 import unittest
 
+import kalshi_python
+from kalshi_python.models.get_events_response import GetEventsResponse  # noqa: E501
+from kalshi_python.rest import ApiException
 
-class TestNumber(unittest.TestCase):
-    """Number unit test stubs"""
+
+class TestGetEventsResponse(unittest.TestCase):
+    """GetEventsResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -24,10 +28,10 @@ class TestNumber(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testNumber(self):
-        """Test Number"""
+    def testGetEventsResponse(self):
+        """Test GetEventsResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = kalshi_python.models.number.Number()  # noqa: E501
+        # model = kalshi_python.models.get_events_response.GetEventsResponse()  # noqa: E501
         pass
 
 

@@ -109,7 +109,7 @@ class MarketApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/events/{event_ticker}', 'GET',
@@ -120,6 +120,109 @@ class MarketApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='GetEventResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_events(self, **kwargs):  # noqa: E501
+        """GetEvents  # noqa: E501
+
+        Endpoint for getting data about all events.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_events(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
+        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like series_ticker was passed in the original query they must be passed again.
+        :param str status: Restricts the events to those with certain statuses, as a comma separated list. The following values are accepted: open, closed, settled.
+        :param str series_ticker: Series ticker to retrieve contracts for.
+        :return: GetEventsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_events_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_events_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_events_with_http_info(self, **kwargs):  # noqa: E501
+        """GetEvents  # noqa: E501
+
+        Endpoint for getting data about all events.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_events_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
+        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like series_ticker was passed in the original query they must be passed again.
+        :param str status: Restricts the events to those with certain statuses, as a comma separated list. The following values are accepted: open, closed, settled.
+        :param str series_ticker: Series ticker to retrieve contracts for.
+        :return: GetEventsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['limit', 'cursor', 'status', 'series_ticker']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_events" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'limit' in params:
+            query_params.append(('limit', params['limit']))  # noqa: E501
+        if 'cursor' in params:
+            query_params.append(('cursor', params['cursor']))  # noqa: E501
+        if 'status' in params:
+            query_params.append(('status', params['status']))  # noqa: E501
+        if 'series_ticker' in params:
+            query_params.append(('series_ticker', params['series_ticker']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/events', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GetEventsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -233,7 +336,7 @@ class MarketApi(object):
 
         :param async_req bool
         :param str ticker: Market ticker (required)
-        :param int limit: Parameter to specify the number of results per page. Defaults to 20.
+        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
         :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like max_ts or min_ts were passed in the original query they must be passed again.
         :param int min_ts: If provided, MinTs restricts history to trades starting from MinTs.  Default value: 1 hour ago.
         :param int max_ts: If provided, MaxTs restricts history to trades up until MaxTs
@@ -259,7 +362,7 @@ class MarketApi(object):
 
         :param async_req bool
         :param str ticker: Market ticker (required)
-        :param int limit: Parameter to specify the number of results per page. Defaults to 20.
+        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
         :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like max_ts or min_ts were passed in the original query they must be passed again.
         :param int min_ts: If provided, MinTs restricts history to trades starting from MinTs.  Default value: 1 hour ago.
         :param int max_ts: If provided, MaxTs restricts history to trades up until MaxTs
@@ -315,7 +418,7 @@ class MarketApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/markets/{ticker}/history', 'GET',
@@ -414,7 +517,7 @@ class MarketApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/markets/{ticker}/orderbook', 'GET',
@@ -442,7 +545,7 @@ class MarketApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int limit: Parameter to specify the number of results per page. Defaults to 20.
+        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
         :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like tickers, max_ts or min_ts were passed in the original query they must be passed again.
         :param str event_ticker: Event ticker to retrieve markets for.
         :param str series_ticker: Series ticker to retrieve contracts for.
@@ -471,7 +574,7 @@ class MarketApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int limit: Parameter to specify the number of results per page. Defaults to 20.
+        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
         :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like tickers, max_ts or min_ts were passed in the original query they must be passed again.
         :param str event_ticker: Event ticker to retrieve markets for.
         :param str series_ticker: Series ticker to retrieve contracts for.
@@ -533,7 +636,7 @@ class MarketApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/markets', 'GET',
@@ -657,7 +760,7 @@ class MarketApi(object):
 
         :param async_req bool
         :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again.
-        :param int limit: Parameter to specify the number of results per page. Defaults to 20.
+        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
         :param str ticker: Parameter to specify a specific market to get trades from.
         :param int min_ts: Restricts the response to trades after a timestamp.
         :param int max_ts: Restricts the response to trades before a timestamp.
@@ -683,7 +786,7 @@ class MarketApi(object):
 
         :param async_req bool
         :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like ticker, max_ts or min_ts were passed in the original query they must be passed again.
-        :param int limit: Parameter to specify the number of results per page. Defaults to 20.
+        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
         :param str ticker: Parameter to specify a specific market to get trades from.
         :param int min_ts: Restricts the response to trades after a timestamp.
         :param int max_ts: Restricts the response to trades before a timestamp.

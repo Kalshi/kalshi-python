@@ -21,7 +21,6 @@ from kalshi_python.models.batch_create_orders_individual_response import BatchCr
 from kalshi_python.models.batch_create_orders_request import BatchCreateOrdersRequest
 from kalshi_python.models.batch_create_orders_response import BatchCreateOrdersResponse
 from kalshi_python.models.cancel_order_response import CancelOrderResponse
-from kalshi_python.models.cent import Cent
 from kalshi_python.models.create_order_request import CreateOrderRequest
 from kalshi_python.models.create_order_response import CreateOrderResponse
 from kalshi_python.models.decrease_order_request import DecreaseOrderRequest
@@ -33,6 +32,7 @@ from kalshi_python.models.fill import Fill
 from kalshi_python.models.fills import Fills
 from kalshi_python.models.get_balance_response import GetBalanceResponse
 from kalshi_python.models.get_event_response import GetEventResponse
+from kalshi_python.models.get_events_response import GetEventsResponse
 from kalshi_python.models.get_fills_response import GetFillsResponse
 from kalshi_python.models.get_market_history_response import GetMarketHistoryResponse
 from kalshi_python.models.get_market_orderbook_response import GetMarketOrderbookResponse
@@ -54,8 +54,6 @@ from kalshi_python.models.order import Order
 from kalshi_python.models.order_book import OrderBook
 from kalshi_python.models.order_confirmation import OrderConfirmation
 from kalshi_python.models.order_list import OrderList
-from kalshi_python.models.order_status import OrderStatus
-from kalshi_python.models.order_type import OrderType
 from kalshi_python.models.output_time import OutputTime
 from kalshi_python.models.price_level import PriceLevel
 from kalshi_python.models.public_trade import PublicTrade

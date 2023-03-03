@@ -28,13 +28,13 @@ class MarketPosition(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'fees_paid': 'Cent',
-        'market_exposure': 'Cent',
+        'fees_paid': 'int',
+        'market_exposure': 'int',
         'position': 'int',
-        'realized_pnl': 'Cent',
+        'realized_pnl': 'int',
         'resting_orders_count': 'int',
         'ticker': 'str',
-        'total_traded': 'Cent'
+        'total_traded': 'int'
     }
 
     attribute_map = {
@@ -69,9 +69,10 @@ class MarketPosition(object):
     def fees_paid(self):
         """Gets the fees_paid of this MarketPosition.  # noqa: E501
 
+        Fees paid on fill orders, in cents.  # noqa: E501
 
         :return: The fees_paid of this MarketPosition.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._fees_paid
 
@@ -79,9 +80,10 @@ class MarketPosition(object):
     def fees_paid(self, fees_paid):
         """Sets the fees_paid of this MarketPosition.
 
+        Fees paid on fill orders, in cents.  # noqa: E501
 
         :param fees_paid: The fees_paid of this MarketPosition.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if fees_paid is None:
             raise ValueError("Invalid value for `fees_paid`, must not be `None`")  # noqa: E501
@@ -92,9 +94,10 @@ class MarketPosition(object):
     def market_exposure(self):
         """Gets the market_exposure of this MarketPosition.  # noqa: E501
 
+        Cost of the aggregate market position in cents.  # noqa: E501
 
         :return: The market_exposure of this MarketPosition.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._market_exposure
 
@@ -102,9 +105,10 @@ class MarketPosition(object):
     def market_exposure(self, market_exposure):
         """Sets the market_exposure of this MarketPosition.
 
+        Cost of the aggregate market position in cents.  # noqa: E501
 
         :param market_exposure: The market_exposure of this MarketPosition.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if market_exposure is None:
             raise ValueError("Invalid value for `market_exposure`, must not be `None`")  # noqa: E501
@@ -140,9 +144,10 @@ class MarketPosition(object):
     def realized_pnl(self):
         """Gets the realized_pnl of this MarketPosition.  # noqa: E501
 
+        Locked in profit and loss, in cents.  # noqa: E501
 
         :return: The realized_pnl of this MarketPosition.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._realized_pnl
 
@@ -150,9 +155,10 @@ class MarketPosition(object):
     def realized_pnl(self, realized_pnl):
         """Sets the realized_pnl of this MarketPosition.
 
+        Locked in profit and loss, in cents.  # noqa: E501
 
         :param realized_pnl: The realized_pnl of this MarketPosition.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if realized_pnl is None:
             raise ValueError("Invalid value for `realized_pnl`, must not be `None`")  # noqa: E501
@@ -213,9 +219,10 @@ class MarketPosition(object):
     def total_traded(self):
         """Gets the total_traded of this MarketPosition.  # noqa: E501
 
+        Total spent on this market in cents.  # noqa: E501
 
         :return: The total_traded of this MarketPosition.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._total_traded
 
@@ -223,9 +230,10 @@ class MarketPosition(object):
     def total_traded(self, total_traded):
         """Sets the total_traded of this MarketPosition.
 
+        Total spent on this market in cents.  # noqa: E501
 
         :param total_traded: The total_traded of this MarketPosition.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if total_traded is None:
             raise ValueError("Invalid value for `total_traded`, must not be `None`")  # noqa: E501

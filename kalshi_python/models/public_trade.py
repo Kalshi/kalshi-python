@@ -30,11 +30,11 @@ class PublicTrade(object):
     swagger_types = {
         'count': 'int',
         'created_time': 'OutputTime',
-        'no_price': 'Cent',
+        'no_price': 'int',
         'taker_side': 'str',
         'ticker': 'str',
         'trade_id': 'str',
-        'yes_price': 'Cent'
+        'yes_price': 'int'
     }
 
     attribute_map = {
@@ -117,9 +117,10 @@ class PublicTrade(object):
     def no_price(self):
         """Gets the no_price of this PublicTrade.  # noqa: E501
 
+        No price for this trade in cents.  # noqa: E501
 
         :return: The no_price of this PublicTrade.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._no_price
 
@@ -127,9 +128,10 @@ class PublicTrade(object):
     def no_price(self, no_price):
         """Sets the no_price of this PublicTrade.
 
+        No price for this trade in cents.  # noqa: E501
 
         :param no_price: The no_price of this PublicTrade.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if no_price is None:
             raise ValueError("Invalid value for `no_price`, must not be `None`")  # noqa: E501
@@ -158,7 +160,7 @@ class PublicTrade(object):
         """
         if taker_side is None:
             raise ValueError("Invalid value for `taker_side`, must not be `None`")  # noqa: E501
-        allowed_values = ["yes", "no", "invalid", ""]  # noqa: E501
+        allowed_values = ["yes", "no"]  # noqa: E501
         if taker_side not in allowed_values:
             raise ValueError(
                 "Invalid value for `taker_side` ({0}), must be one of {1}"  # noqa: E501
@@ -221,9 +223,10 @@ class PublicTrade(object):
     def yes_price(self):
         """Gets the yes_price of this PublicTrade.  # noqa: E501
 
+        Yes price for this trade in cents.  # noqa: E501
 
         :return: The yes_price of this PublicTrade.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._yes_price
 
@@ -231,9 +234,10 @@ class PublicTrade(object):
     def yes_price(self, yes_price):
         """Sets the yes_price of this PublicTrade.
 
+        Yes price for this trade in cents.  # noqa: E501
 
         :param yes_price: The yes_price of this PublicTrade.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if yes_price is None:
             raise ValueError("Invalid value for `yes_price`, must not be `None`")  # noqa: E501

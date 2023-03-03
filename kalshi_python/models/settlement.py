@@ -30,12 +30,12 @@ class Settlement(object):
     swagger_types = {
         'market_result': 'str',
         'no_count': 'int',
-        'no_total_cost': 'Cent',
-        'revenue': 'Cent',
+        'no_total_cost': 'int',
+        'revenue': 'int',
         'settled_time': 'OutputTime',
         'ticker': 'str',
         'yes_count': 'int',
-        'yes_total_cost': 'Cent'
+        'yes_total_cost': 'int'
     }
 
     attribute_map = {
@@ -123,9 +123,10 @@ class Settlement(object):
     def no_total_cost(self):
         """Gets the no_total_cost of this Settlement.  # noqa: E501
 
+        Cost of the aggregate no position in this market on settlement in cents.  # noqa: E501
 
         :return: The no_total_cost of this Settlement.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._no_total_cost
 
@@ -133,9 +134,10 @@ class Settlement(object):
     def no_total_cost(self, no_total_cost):
         """Sets the no_total_cost of this Settlement.
 
+        Cost of the aggregate no position in this market on settlement in cents.  # noqa: E501
 
         :param no_total_cost: The no_total_cost of this Settlement.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if no_total_cost is None:
             raise ValueError("Invalid value for `no_total_cost`, must not be `None`")  # noqa: E501
@@ -146,9 +148,10 @@ class Settlement(object):
     def revenue(self):
         """Gets the revenue of this Settlement.  # noqa: E501
 
+        Value earned in this settlement in cents.  # noqa: E501
 
         :return: The revenue of this Settlement.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._revenue
 
@@ -156,9 +159,10 @@ class Settlement(object):
     def revenue(self, revenue):
         """Sets the revenue of this Settlement.
 
+        Value earned in this settlement in cents.  # noqa: E501
 
         :param revenue: The revenue of this Settlement.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if revenue is None:
             raise ValueError("Invalid value for `revenue`, must not be `None`")  # noqa: E501
@@ -242,9 +246,10 @@ class Settlement(object):
     def yes_total_cost(self):
         """Gets the yes_total_cost of this Settlement.  # noqa: E501
 
+        Cost of the aggregate yes position in this market on settlement in cents.  # noqa: E501
 
         :return: The yes_total_cost of this Settlement.  # noqa: E501
-        :rtype: Cent
+        :rtype: int
         """
         return self._yes_total_cost
 
@@ -252,9 +257,10 @@ class Settlement(object):
     def yes_total_cost(self, yes_total_cost):
         """Sets the yes_total_cost of this Settlement.
 
+        Cost of the aggregate yes position in this market on settlement in cents.  # noqa: E501
 
         :param yes_total_cost: The yes_total_cost of this Settlement.  # noqa: E501
-        :type: Cent
+        :type: int
         """
         if yes_total_cost is None:
             raise ValueError("Invalid value for `yes_total_cost`, must not be `None`")  # noqa: E501

@@ -62,16 +62,22 @@ class ApiInstance(object):
     def get_event(self, event_ticker, **kwargs):
         return self.market_api.get_event(event_ticker, **kwargs)
 
+    def get_events(self, **kwargs):
+        return self.market_api.get_events(**kwargs)
+
     def get_market(self, ticker, **kwargs):
         return self.market_api.get_market(ticker, **kwargs)
 
     def get_market_history(self, ticker, **kwargs):
+        self.auto_login_if_possible()
         return self.market_api.get_market_history(ticker, **kwargs)
 
     def get_market_orderbook(self, ticker, **kwargs):
+        self.auto_login_if_possible()
         return self.market_api.get_market_orderbook(ticker, **kwargs)
 
     def get_markets(self, **kwargs):
+        self.auto_login_if_possible()
         return self.market_api.get_markets(**kwargs)
 
     def get_series(self, series_ticker, **kwargs):
