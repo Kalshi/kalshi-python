@@ -28,14 +28,8 @@ import kalshi_python
 from kalshi_python.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: bearer_token
-configuration = kalshi_python.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
 # create an instance of the API class
-api_instance = kalshi_python.MarketApi(kalshi_python.ApiClient(configuration))
+api_instance = kalshi_python.MarketApi()
 event_ticker = 'event_ticker_example' # str | Should be filled with the ticker of the event.
 
 try:
@@ -58,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token)
+No authorization required
 
 ### HTTP request headers
 
