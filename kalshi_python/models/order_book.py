@@ -64,9 +64,9 @@ class OrderBook(object):
         :type: list[PriceLevel]
         """
         if no is None:
-            raise ValueError("Invalid value for `no`, must not be `None`")  # noqa: E501
-
-        self._no = no
+            self._no = []
+        else:
+            self._no = no
 
     @property
     def yes(self):
@@ -87,9 +87,9 @@ class OrderBook(object):
         :type: list[PriceLevel]
         """
         if yes is None:
-            raise ValueError("Invalid value for `yes`, must not be `None`")  # noqa: E501
-
-        self._yes = yes
+            self._yes = []
+        else:
+            self._yes = yes
 
     def to_dict(self):
         """Returns the model properties as a dict"""
