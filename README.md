@@ -98,11 +98,20 @@ orderbookResponse = kalshi_api.get_market_orderbook(marketTicker)
 print('\nOrderbook for market: ' + marketTicker)
 pprint(orderbookResponse)
 
-# Gets the market price history for a specific market.
+# Gets the market candlestick history for a specific market.
 marketTicker = 'FED-23DEC-T3.00'
-historyResponse = kalshi_api.get_market_history(marketTicker)
-print('\nMarket price history for market: ' + marketTicker)
-pprint(historyResponse)
+seriesTicker = 'FED'
+batchSize = 5000  # Maximum allowed by API
+periodInterval = 1 # 1m intervals
+candleStickResponse = kalshi_api.get_market_candlesticks(
+    ticker=marketTicker,
+    series_ticker=seriesTicker,
+    start_ts=int(time.time()) - (batchSize * periodInterval * 60),
+    end_ts=int(time.time()),
+    period_interval=periodInterval, 
+)
+print('\nMarket candlestick history for market: ' + marketTicker)
+pprint(candleStickResponse)
 
 # Gets the balance for your kalshi account.
 balanceResponse = kalshi_api.get_balance()

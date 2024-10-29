@@ -325,53 +325,53 @@ class MarketApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_market_history(self, ticker, **kwargs):  # noqa: E501
-        """GetMarketHistory  # noqa: E501
+    def get_market_candlesticks(self, ticker, series_ticker, start_ts, end_ts, period_interval, **kwargs):  # noqa: E501
+        """GetMarketCandlesticks  # noqa: E501
 
-        Endpoint for getting the statistics history for a market.  The value for the ticker path parameter should match the ticker of the target market. The min_ts parameter is optional, and will restrict statistics to those after provided timestamp. The min_ts is inclusive, which means a market history point at min_ts will be returned.  # noqa: E501
+        Endpoint for getting the historical candlesticks for a market.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_market_history(ticker, async_req=True)
+        >>> thread = api.get_market_candlesticks(ticker, series_ticker, start_ts, end_ts, period_interval, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str ticker: Market ticker (required)
-        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
-        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like max_ts or min_ts were passed in the original query they must be passed again.
-        :param int min_ts: If provided, MinTs restricts history to trades starting from MinTs.  Default value: 1 hour ago.
-        :param int max_ts: If provided, MaxTs restricts history to trades up until MaxTs
-        :return: GetMarketHistoryResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
+        :param str ticker: Unique identifier for the market. (required)
+        :param str series_ticker: Unique identifier for the series. (required)
+        :param int period_interval: Length of each candlestick period in minutes. Must be one minute, one hour, or one day. (required)
+        :param int start_ts: Restricts candlesticks to those covering time periods that end on or after this timestamp.
+        :param int end_ts: Restricts candlesticks to those covering time periods that end on or before this timestamp.
+        :return: GetMarketCandlesticksResponse
+                If the method is called asynchronously,
+                returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_market_history_with_http_info(ticker, **kwargs)  # noqa: E501
+            return self.get_market_candlesticks_with_http_info(ticker, series_ticker, start_ts, end_ts, period_interval, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_market_history_with_http_info(ticker, **kwargs)  # noqa: E501
+            (data) = self.get_market_candlesticks_with_http_info(ticker, series_ticker, start_ts, end_ts, period_interval, **kwargs)  # noqa: E501
             return data
 
-    def get_market_history_with_http_info(self, ticker, **kwargs):  # noqa: E501
-        """GetMarketHistory  # noqa: E501
+    def get_market_candlesticks_with_http_info(self, ticker, series_ticker, start_ts, end_ts, period_interval, **kwargs):  # noqa: E501
+        """GetMarketCandlesticks  # noqa: E501
 
-        Endpoint for getting the statistics history for a market.  The value for the ticker path parameter should match the ticker of the target market. The min_ts parameter is optional, and will restrict statistics to those after provided timestamp. The min_ts is inclusive, which means a market history point at min_ts will be returned.  # noqa: E501
+        Endpoint for getting the historical candlesticks for a market.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_market_history_with_http_info(ticker, async_req=True)
+        >>> thread = api.get_market_candlesticks_with_http_info(ticker, series_ticker, period_interval, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str ticker: Market ticker (required)
-        :param int limit: Parameter to specify the number of results per page. Defaults to 100.
-        :param str cursor: The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like max_ts or min_ts were passed in the original query they must be passed again.
-        :param int min_ts: If provided, MinTs restricts history to trades starting from MinTs.  Default value: 1 hour ago.
-        :param int max_ts: If provided, MaxTs restricts history to trades up until MaxTs
-        :return: GetMarketHistoryResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
+        :param str ticker: Unique identifier for the market. (required)
+        :param str series_ticker: Unique identifier for the series. (required)
+        :param int period_interval: Length of each candlestick period in minutes. Must be one minute, one hour, or one day. (required)
+        :param int start_ts: Restricts candlesticks to those covering time periods that end on or after this timestamp.
+        :param int end_ts: Restricts candlesticks to those covering time periods that end on or before this timestamp.
+        :return: GetMarketCandlesticksResponse
+                If the method is called asynchronously,
+                returns the request thread.
         """
 
-        all_params = ['ticker', 'limit', 'cursor', 'min_ts', 'max_ts']  # noqa: E501
+        all_params = ['ticker', 'series_ticker', 'period_interval', 'start_ts', 'end_ts']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -382,30 +382,32 @@ class MarketApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_market_history" % key
+                    " to method get_market_candlesticks" % key
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'ticker' is set
-        if ('ticker' not in params or
-                params['ticker'] is None):
-            raise ValueError("Missing the required parameter `ticker` when calling `get_market_history`")  # noqa: E501
+        
+        # verify the required parameters are set
+        required_params = all_params
+        for param in required_params:
+            if param not in params or params[param] is None:
+                raise ValueError(f"Missing the required parameter `{param}` when calling `get_market_candlesticks`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
         if 'ticker' in params:
             path_params['ticker'] = params['ticker']  # noqa: E501
+        if 'series_ticker' in params:
+            path_params['series_ticker'] = params['series_ticker']  # noqa: E501
 
         query_params = []
-        if 'limit' in params:
-            query_params.append(('limit', params['limit']))  # noqa: E501
-        if 'cursor' in params:
-            query_params.append(('cursor', params['cursor']))  # noqa: E501
-        if 'min_ts' in params:
-            query_params.append(('min_ts', params['min_ts']))  # noqa: E501
-        if 'max_ts' in params:
-            query_params.append(('max_ts', params['max_ts']))  # noqa: E501
+        if 'period_interval' in params:
+            query_params.append(('period_interval', params['period_interval']))  # noqa: E501
+        if 'start_ts' in params:
+            query_params.append(('start_ts', params['start_ts']))  # noqa: E501
+        if 'end_ts' in params:
+            query_params.append(('end_ts', params['end_ts']))  # noqa: E501
 
         header_params = {}
 
@@ -421,14 +423,14 @@ class MarketApi(object):
         auth_settings = ['bearer_token']  # noqa: E501
 
         return self.api_client.call_api(
-            '/markets/{ticker}/history', 'GET',
+            '/series/{series_ticker}/markets/{ticker}/candlesticks', 'GET',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetMarketHistoryResponse',  # noqa: E501
+            response_type='GetMarketCandlesticksResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

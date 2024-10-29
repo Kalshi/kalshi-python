@@ -68,9 +68,9 @@ class ApiInstance(object):
     def get_market(self, ticker, **kwargs):
         return self.market_api.get_market(ticker, **kwargs)
 
-    def get_market_history(self, ticker, **kwargs):
+    def get_market_candlesticks(self, ticker, series_ticker, start_ts, end_ts, period_interval, **kwargs):
         self.auto_login_if_possible()
-        return self.market_api.get_market_history(ticker, **kwargs)
+        return self.market_api.get_market_candlesticks(ticker, series_ticker, start_ts, end_ts, period_interval, **kwargs)
 
     def get_market_orderbook(self, ticker, **kwargs):
         self.auto_login_if_possible()

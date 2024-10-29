@@ -44,7 +44,6 @@ from kalshi_python.models.fills import Fills
 from kalshi_python.models.get_balance_response import GetBalanceResponse
 from kalshi_python.models.get_event_response import GetEventResponse
 from kalshi_python.models.get_fills_response import GetFillsResponse
-from kalshi_python.models.get_market_history_response import GetMarketHistoryResponse
 from kalshi_python.models.get_market_orderbook_response import GetMarketOrderbookResponse
 from kalshi_python.models.get_market_response import GetMarketResponse
 from kalshi_python.models.get_markets_response import GetMarketsResponse

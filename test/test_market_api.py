@@ -42,13 +42,6 @@ class TestMarketApi(unittest.TestCase):
         """
         pass
 
-    def test_get_market_history(self):
-        """Test case for get_market_history
-
-        GetMarketHistory  # noqa: E501
-        """
-        pass
-
     def test_get_market_orderbook(self):
         """Test case for get_market_orderbook
 
@@ -78,5 +71,5 @@ class TestMarketApi(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

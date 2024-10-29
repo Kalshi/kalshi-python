@@ -7,7 +7,8 @@ Method | HTTP request | Description
 [**get_event**](MarketApi.md#get_event) | **GET** /events/{event_ticker} | GetEvent
 [**get_events**](MarketApi.md#get_events) | **GET** /events | GetEvents
 [**get_market**](MarketApi.md#get_market) | **GET** /markets/{ticker} | GetMarket
-[**get_market_history**](MarketApi.md#get_market_history) | **GET** /markets/{ticker}/history | GetMarketHistory
+[**get_market_candlesticks**](MarketApi.md#get_market_candlesticks) | **GET** /series/{series_ticker}/markets/{ticker}/candlesticks | GetMarketCandlesticks
+
 [**get_market_orderbook**](MarketApi.md#get_market_orderbook) | **GET** /markets/{ticker}/orderbook | GetMarketOrderbook
 [**get_markets**](MarketApi.md#get_markets) | **GET** /markets | GetMarkets
 [**get_series**](MarketApi.md#get_series) | **GET** /series/{series_ticker} | GetSeries
@@ -155,68 +156,6 @@ Name | Type | Description  | Notes
 ### Authorization
 
 No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_market_history**
-> GetMarketHistoryResponse get_market_history(ticker, limit=limit, cursor=cursor, min_ts=min_ts, max_ts=max_ts)
-
-GetMarketHistory
-
-Endpoint for getting the statistics history for a market.  The value for the ticker path parameter should match the ticker of the target market. The min_ts parameter is optional, and will restrict statistics to those after provided timestamp. The min_ts is inclusive, which means a market history point at min_ts will be returned.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import kalshi_python
-from kalshi_python.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: bearer_token
-configuration = kalshi_python.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = kalshi_python.MarketApi(kalshi_python.ApiClient(configuration))
-ticker = 'ticker_example' # str | Market ticker
-limit = 56 # int | Parameter to specify the number of results per page. Defaults to 100. (optional)
-cursor = 'cursor_example' # str | The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like max_ts or min_ts were passed in the original query they must be passed again. (optional)
-min_ts = 789 # int | If provided, MinTs restricts history to trades starting from MinTs.  Default value: 1 hour ago. (optional)
-max_ts = 789 # int | If provided, MaxTs restricts history to trades up until MaxTs (optional)
-
-try:
-    # GetMarketHistory
-    api_response = api_instance.get_market_history(ticker, limit=limit, cursor=cursor, min_ts=min_ts, max_ts=max_ts)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling MarketApi->get_market_history: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ticker** | **str**| Market ticker | 
- **limit** | **int**| Parameter to specify the number of results per page. Defaults to 100. | [optional] 
- **cursor** | **str**| The Cursor represents a pointer to the next page of records in the pagination. So this optional parameter, when filled, should be filled with the cursor string returned in a previous request to this end-point. Filling this would basically tell the api to get the next page containing the number of records passed on the limit parameter. On the other side not filling it tells the api you want to get the first page for another query. The cursor does not store any filters, so if any filter parameters like max_ts or min_ts were passed in the original query they must be passed again. | [optional] 
- **min_ts** | **int**| If provided, MinTs restricts history to trades starting from MinTs.  Default value: 1 hour ago. | [optional] 
- **max_ts** | **int**| If provided, MaxTs restricts history to trades up until MaxTs | [optional] 
-
-### Return type
-
-[**GetMarketHistoryResponse**](GetMarketHistoryResponse.md)
-
-### Authorization
-
-[bearer_token](../README.md#bearer_token)
 
 ### HTTP request headers
 
