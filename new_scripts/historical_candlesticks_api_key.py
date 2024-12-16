@@ -13,134 +13,9 @@ from cryptography.hazmat.backends import default_backend
 from cryptography.exceptions import InvalidSignature
 
 # Configuration
-TRADING_API_URL = "https://trading-api.kalshi.com"
 ELECTIONS_API_URL = "https://api.elections.kalshi.com"
 KEY_ID = ""
 KEY_PATH = ""
-
-ELECTIONS_SERIES_TICKERS_SET = {
-    "ADAMS",
-    "TIPPINGPOINT",
-    "SENATEWI",
-    "SENATETX",
-    "SENATEPARTYWI",
-    "SENATEPARTYTX",
-    "SENATEPARTYPA",
-    "SENATEPARTYOH",
-    "SENATEPARTYNV",
-    "SENATEPARTYNE",
-    "SENATEPARTYMT",
-    "SENATEPARTYMI",
-    "SENATEPARTYMD",
-    "SENATEPARTYFL",
-    "SENATEPARTYAZ",
-    "SENATEPARTY",
-    "SENATEPA",
-    "SENATEOH",
-    "SENATENV",
-    "SENATENE",
-    "SENATEMT",
-    "SENATEMOV",
-    "SENATEMI",
-    "SENATEMD",
-    "SENATEFL",
-    "SENATEAZ",
-    "PRESPARTYSTATEPA",
-    "PRESPARTYSTATENV",
-    "PRESPARTYSTATENC",
-    "PRESPARTYSTATEMI",
-    "PRESPARTYSTATEGA",
-    "PRESPARTYSTATEAZ",
-    "PRESPARTYPA",
-    "PRESPARTYNV",
-    "PRESPARTYNC",
-    "PRESPARTYMI",
-    "PRESPARTYGA",
-    "PRESPARTYFULL",
-    "PRESPARTYAZ",
-    "PRESPARTYWI",
-    "PRESNOM-R",
-    "PRESNOMR",
-    "PRESNOM-D",
-    "PRESNOMD",
-    "PRES",
-    "POWER",
-    "POPVOTEMOVPA",
-    "POPVOTEMOV",
-    "POPVOTE",
-    "HOUSEPARTYMI07",
-    "HOUSEMOV",
-    "GOVPARTYNH",
-    "GOVPARTYNH",
-    "ECMOV",
-    "CONTROLS",
-    "CONTROLH",
-    "CLOSESTSTATE",
-    "POPVOTEMOVNV",
-    "POPVOTEMOVAZ",
-    "POPVOTEMOVMI",
-    "POPVOTEMOVWI",
-    "POPVOTEMOVNC",
-    "POPVOTEMOVGA",
-    "PRESPARTYFL",
-    "PRESPARTYTX",
-    "PRESPARTYOH",
-    "PRESPARTYCA",
-    "PRESPARTYIL",
-    "PRESPARTYNY",
-    "PRESPARTYNJ",
-    "PRESPARTYVA",
-    "PRESPARTYWA",
-    "PRESPARTYTN",
-    "PRESPARTYMA",
-    "PRESPARTYIN",
-    "PRESPARTYMO",
-    "PRESPARTYMD",
-    "PRESPARTYCO",
-    "PRESPARTYMN",
-    "PRESPARTYSC",
-    "PRESPARTYAL",
-    "PRESPARTYLA",
-    "PRESPARTYKY",
-    "PRESPARTYOR",
-    "PRESPARTYOK",
-    "PRESPARTYCT",
-    "PRESPARTYUT",
-    "PRESPARTYIA",
-    "PRESPARTYAR",
-    "PRESPARTYKS",
-    "PRESPARTYMS",
-    "PRESPARTYNM",
-    "PRESPARTYNE",
-    "PRESPARTYID",
-    "PRESPARTYWV",
-    "PRESPARTYHI",
-    "PRESPARTYNH",
-    "PRESPARTYME",
-    "PRESPARTYMT",
-    "PRESPARTYRI",
-    "PRESPARTYDE",
-    "PRESPARTYSD",
-    "PRESPARTYND",
-    "PRESPARTYAK",
-    "PRESPARTYVT",
-    "PRESPARTYWY",
-    "PRESPARTYNE3",
-    "PRESPARTYME2",
-    "PRESPARTYNE1",
-    "PRESPARTYDC",
-    "CABINETMUSK",
-    "PRESPARTYME1",
-    "CABINETRFK",
-    "PRESPARTYNE2",
-    "CABINETTULSI",
-    "RSENATESEATS",
-    "CABINETDIMON",
-    "MERGED",
-    "ROGANKH",
-    "ROGANDJT",
-    "PRESINDEXD",
-}
 
 
 class KalshiAuth:
@@ -155,22 +30,22 @@ class KalshiAuth:
                 key_file.read(), password=None, backend=default_backend()
             )
         return private_key
-    
+
     def sign_pss_text(self, text: str) -> str:
         # Before signing, we need to hash our message.
         # The hash is what we actually sign.
         # Convert the text to bytes
-        message = text.encode('utf-8')
+        message = text.encode("utf-8")
         try:
             signature = self.private_key.sign(
                 message,
                 padding.PSS(
                     mgf=padding.MGF1(hashes.SHA256()),
-                    salt_length=padding.PSS.DIGEST_LENGTH
+                    salt_length=padding.PSS.DIGEST_LENGTH,
                 ),
-                hashes.SHA256()
+                hashes.SHA256(),
             )
-            return base64.b64encode(signature).decode('utf-8')
+            return base64.b64encode(signature).decode("utf-8")
         except InvalidSignature as e:
             raise ValueError("RSA sign PSS failed") from e
 
@@ -189,8 +64,7 @@ class KalshiAuth:
 
 
 class KalshiHistoricalCandlesticksReader:
-    def __init__(self, base_url: str, auth: KalshiAuth):
-        self.base_url = base_url
+    def __init__(self, auth: KalshiAuth):
         self.auth = auth
 
     def get_markets(self, ticker: str) -> List[str]:
@@ -208,7 +82,7 @@ class KalshiHistoricalCandlesticksReader:
         headers = self.auth.sign_request("GET", path)
 
         resp = requests.get(
-            f"{self.base_url}{path}", headers=headers, params=params
+            f"{ELECTIONS_API_URL}{path}", headers=headers, params=params
         )
 
         if resp.status_code != 200:
@@ -235,7 +109,7 @@ class KalshiHistoricalCandlesticksReader:
         }
 
         response = requests.get(
-            f"{self.base_url}{path}", headers=headers, params=params
+            f"{ELECTIONS_API_URL}{path}", headers=headers, params=params
         )
 
         if response.status_code != 200:
@@ -362,6 +236,8 @@ Args:
     output_dir: The directory to save the output files
     end_ts: Optional end timestamp (defaults to current time)
 """
+
+
 def process_market(
     fetcher: KalshiHistoricalCandlesticksReader,
     market_ticker: str,
@@ -404,13 +280,7 @@ if __name__ == "__main__":
 
     # Determine base URL
     series_ticker = get_series_ticker(args.ticker)
-    base_url = (
-        ELECTIONS_API_URL
-        if series_ticker in ELECTIONS_SERIES_TICKERS_SET or args.ticker.startswith("KX")
-        else TRADING_API_URL
-    )
-
-    print(f"base_url: {base_url}")
+    base_url = ELECTIONS_API_URL
 
     # Initialize auth and fetcher
     auth = KalshiAuth(KEY_PATH, KEY_ID)

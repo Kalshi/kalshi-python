@@ -7,136 +7,11 @@ from datetime import datetime
 from typing import Dict, List
 import requests
 
-EMAIL=""
-PASSWORD=""
+EMAIL = ""
+PASSWORD = ""
 
 # Configuration
-TRADING_API_URL = "https://trading-api.kalshi.com"
 ELECTIONS_API_URL = "https://api.elections.kalshi.com"
-
-ELECTIONS_SERIES_TICKERS_SET = {
-    "ADAMS",
-    "TIPPINGPOINT",
-    "SENATEWI",
-    "SENATETX",
-    "SENATEPARTYWI",
-    "SENATEPARTYTX",
-    "SENATEPARTYPA",
-    "SENATEPARTYOH",
-    "SENATEPARTYNV",
-    "SENATEPARTYNE",
-    "SENATEPARTYMT",
-    "SENATEPARTYMI",
-    "SENATEPARTYMD",
-    "SENATEPARTYFL",
-    "SENATEPARTYAZ",
-    "SENATEPARTY",
-    "SENATEPA",
-    "SENATEOH",
-    "SENATENV",
-    "SENATENE",
-    "SENATEMT",
-    "SENATEMOV",
-    "SENATEMI",
-    "SENATEMD",
-    "SENATEFL",
-    "SENATEAZ",
-    "PRESPARTYSTATEPA",
-    "PRESPARTYSTATENV",
-    "PRESPARTYSTATENC",
-    "PRESPARTYSTATEMI",
-    "PRESPARTYSTATEGA",
-    "PRESPARTYSTATEAZ",
-    "PRESPARTYPA",
-    "PRESPARTYNV",
-    "PRESPARTYNC",
-    "PRESPARTYMI",
-    "PRESPARTYGA",
-    "PRESPARTYFULL",
-    "PRESPARTYAZ",
-    "PRESPARTYWI",
-    "PRESNOM-R",
-    "PRESNOMR",
-    "PRESNOM-D",
-    "PRESNOMD",
-    "PRES",
-    "POWER",
-    "POPVOTEMOVPA",
-    "POPVOTEMOV",
-    "POPVOTE",
-    "HOUSEPARTYMI07",
-    "HOUSEMOV",
-    "GOVPARTYNH",
-    "GOVPARTYNH",
-    "ECMOV",
-    "CONTROLS",
-    "CONTROLH",
-    "CLOSESTSTATE",
-    "POPVOTEMOVNV",
-    "POPVOTEMOVAZ",
-    "POPVOTEMOVMI",
-    "POPVOTEMOVWI",
-    "POPVOTEMOVNC",
-    "POPVOTEMOVGA",
-    "PRESPARTYFL",
-    "PRESPARTYTX",
-    "PRESPARTYOH",
-    "PRESPARTYCA",
-    "PRESPARTYIL",
-    "PRESPARTYNY",
-    "PRESPARTYNJ",
-    "PRESPARTYVA",
-    "PRESPARTYWA",
-    "PRESPARTYTN",
-    "PRESPARTYMA",
-    "PRESPARTYIN",
-    "PRESPARTYMO",
-    "PRESPARTYMD",
-    "PRESPARTYCO",
-    "PRESPARTYMN",
-    "PRESPARTYSC",
-    "PRESPARTYAL",
-    "PRESPARTYLA",
-    "PRESPARTYKY",
-    "PRESPARTYOR",
-    "PRESPARTYOK",
-    "PRESPARTYCT",
-    "PRESPARTYUT",
-    "PRESPARTYIA",
-    "PRESPARTYAR",
-    "PRESPARTYKS",
-    "PRESPARTYMS",
-    "PRESPARTYNM",
-    "PRESPARTYNE",
-    "PRESPARTYID",
-    "PRESPARTYWV",
-    "PRESPARTYHI",
-    "PRESPARTYNH",
-    "PRESPARTYME",
-    "PRESPARTYMT",
-    "PRESPARTYRI",
-    "PRESPARTYDE",
-    "PRESPARTYSD",
-    "PRESPARTYND",
-    "PRESPARTYAK",
-    "PRESPARTYVT",
-    "PRESPARTYWY",
-    "PRESPARTYNE3",
-    "PRESPARTYME2",
-    "PRESPARTYNE1",
-    "PRESPARTYDC",
-    "CABINETMUSK",
-    "PRESPARTYME1",
-    "CABINETRFK",
-    "PRESPARTYNE2",
-    "CABINETTULSI",
-    "RSENATESEATS",
-    "CABINETDIMON",
-    "MERGED",
-    "ROGANKH",
-    "ROGANDJT",
-    "PRESINDEXD",
-}
 
 
 def get_series_ticker(market_ticker):
@@ -308,7 +183,10 @@ class KalshiHistoricalCandlesticksReader:
 
 
 def process_market(
-    fetcher: KalshiHistoricalCandlesticksReader, market_ticker: str, output_dir: str, end_ts: int = None
+    fetcher: KalshiHistoricalCandlesticksReader,
+    market_ticker: str,
+    output_dir: str,
+    end_ts: int = None,
 ):
     """Process a single market's historical data"""
     data = fetcher.fetch_all_historical_data(
@@ -337,25 +215,25 @@ def process_market(
     fetcher.save_to_json(data, json_filename)
     fetcher.save_to_csv(data, csv_filename)
 
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Fetch historical candlestick data for Kalshi markets")
+    parser = argparse.ArgumentParser(
+        description="Fetch historical candlestick data for Kalshi markets"
+    )
     parser.add_argument("ticker", help="Series ticker, event ticker, or market ticker")
     args = parser.parse_args()
 
     # Determine base URL
     series_ticker = get_series_ticker(args.ticker)
-    base_url = (
-        ELECTIONS_API_URL
-        if series_ticker in ELECTIONS_SERIES_TICKERS_SET
-        or args.ticker.startswith("KX")
-        else TRADING_API_URL
-    )
+    base_url = ELECTIONS_API_URL
 
     # Initialize fetcher
     auth_token = login(base_url)
     if not auth_token:
         exit(1)
-    fetcher = KalshiHistoricalCandlesticksReader(base_url=base_url, auth_token=auth_token)
+    fetcher = KalshiHistoricalCandlesticksReader(
+        base_url=base_url, auth_token=auth_token
+    )
 
     # Create output directory
     output_dir = "output"
