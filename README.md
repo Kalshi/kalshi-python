@@ -1,7 +1,7 @@
 ![Deprecated](https://img.shields.io/badge/status-deprecated-red)
 
 # kalshi_python
-<span style="color: red; font-weight: bold;">⚠️ This repository is no longer supported. For an example on how to authenticate with the trading API please see https://github.com/Kalshi/kalshi-python/blob/main/new_scripts/auth_migration.py </span>
+<span style="color: red; font-weight: bold;">⚠️ This repository is no longer supported. For an example on how to authenticate with the trading API please see https://github.com/Kalshi/kalshi-starter-code-python or https://github.com/Kalshi/kalshi-python/blob/main/new_scripts/auth_migration.py </span>
 
 This SDK is powered by [Kalshi's trading api](https://trading-api.readme.io). 
 
